@@ -1,3 +1,4 @@
+drop table if exists users CASCADE;
 create table users
 (
   id INT,
