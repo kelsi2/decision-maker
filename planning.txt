@@ -23,7 +23,7 @@ DONE 4. landing page (create poll, what does the app do?) [get /]
 
 
 ## POST ROUTES ##
-1. Post '/polls' - Create new poll
+DONE 1. Post '/polls' - Create new poll
 2. post '/:poll_id/vote' - user submits vote
 3. post /delete/:poll_id - allows poll to be deleted
 4. post /edit/:poll_id - allows poll to be edited

@@ -4,26 +4,33 @@ const generateRandomString = require('../lib/helperFunctions');
 
 //Create new poll
 // router.post('/', (req, res) => {
-  //generate link
-  // const adminID = generateRandomString();
-  // const voterID = generateRandomString();
-  // let options = [];
+//generate link
+// const adminID = generateRandomString();
+// const voterID = generateRandomString();
+// let options = [];
 
-  // const newPoll = {
-  //   email: req.body.email,
-  //   title: req.body.title,
-  //   adminURL: adminID,
-  //   voterURL: voterID,
-  //   voteCount: 0
-  // };
+// const newPoll = {
+//   email: req.body.email,
+//   title: req.body.title,
+//   adminURL: adminID,
+//   voterURL: voterID,
+//   voteCount: 0
+// };
 
-  router.get("/", (req, res) => {
-     res.render('polls');
-  })
+//create new poll
+router.get("/", (req, res) => {
+  res.render('polls');
+});
 
-  router.post('/', (req,res) => {
-    console.log(req.body.user_email, req.body.poll_title, req.body.poll_question);
-    res.redirect('polls');
-  })
+//submit new poll
+router.post('/', (req, res) => {
+  console.log(req.body.user_email, req.body.poll_title, req.body.poll_question);
+  res.redirect('created');
+});
 
-  module.exports = router;
+//display links for admin (view poll results) and share link (for voting)
+router.get('/created', (req, res) => {
+  res.render('created');
+});
+
+module.exports = router;
