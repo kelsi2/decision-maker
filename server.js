@@ -10,6 +10,7 @@ const sass = require("node-sass-middleware");
 const app = express();
 const morgan = require('morgan');
 const pollsRouter = require('./routes/polls');
+const created = require('./routes/create');
 
 // PG database client/connection setup
 const {Pool} = require('pg');
@@ -45,6 +46,8 @@ app.get("/", (req, res) => {
 });
 
 app.use('/polls', pollsRouter);
+app.use('/links', created);
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
