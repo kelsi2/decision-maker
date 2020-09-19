@@ -2,9 +2,9 @@
 require('dotenv').config();
 
 // Web server config
-const PORT = process.env.PORT || 5000;
-const ENV = process.env.ENV || "development";
-const express = require("express");
+const PORT       = process.env.PORT || 5000;
+const ENV        = process.env.ENV || "development";
+const express    = require("express");
 const bodyParser = require("body-parser");
 const sass = require("node-sass-middleware");
 const app = express();
