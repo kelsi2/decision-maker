@@ -9,6 +9,7 @@ const bodyParser = require("body-parser");
 const sass = require("node-sass-middleware");
 const app = express();
 const morgan = require('morgan');
+const pollsRouter = require('./routes/polls');
 
 // PG database client/connection setup
 const {Pool} = require('pg');
@@ -42,6 +43,8 @@ const pollsRoutes = require("./routes/polls.js");
 app.get("/", (req, res) => {
   res.render("index");
 });
+
+app.use('/polls', pollsRouter)
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
