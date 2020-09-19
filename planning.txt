@@ -10,7 +10,7 @@
 
 ## BACKEND ##
 1. database
-2. routes
+2. routes (see site pages and post routes)
 
 ## TODO ##
 1. HTML shell (one per page, for now just barebones what this page is)
