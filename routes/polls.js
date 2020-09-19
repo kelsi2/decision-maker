@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const generateRandomString = require('../helperFunctions');
+const generateRandomString = require('../lib/helperFunctions');
 
 //Create new poll
 router.post('/', (req, res) => {
