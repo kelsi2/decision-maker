@@ -3,7 +3,7 @@
 1. admin page (view poll and results) (get /admin/:admin_url) <--admin_url is the link given at poll creation
 2. Poll creation (get /new)
 3. voting page (get /voter/:voter_url) <-- voting link given at poll creation
-4. landing page (create poll, what does the app do?) [get /]
+DONE 4. landing page (create poll, what does the app do?) [get /]
 5. poll created, display admin and voter links after poll creation (/created)
 6. after vote page (/voted) <-- display poll results
 7. error page in case user has already voted (get /user_error)
