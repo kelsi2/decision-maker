@@ -1,11 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Poll Creator</title>
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
 </head>
+
 <body>
-  <h1>polls</h1>
+  <header>
+    <h1>Let me help you make up your mind</h1>
+  </header>
+  <main>
+    <section>
+      <form action="/polls" method="post">
+        <!-- enter email -->
+        <input type="email" name="user_email" placeholder="e-mail@example.com"><br>
+        <!-- enter title of poll  -->
+        <input type="text" name="poll_title" placeholder="title"><br>
+        <!-- what is your question?  -->
+        <input type="text" name="poll_question" placeholder="what would you like to decide?"><br>
+        <!-- button  -->
+        <div class="field_wrapper">
+          <input type="text" name="first_choice" placeholder="first option"><br>
+          <input type="text" name="second_choice" placeholder="second option"><br>
+          <input type="text" name="field_name[]" value="" />
+          <a href="javascript:void(0);" class="add_button" title="Add field"><button type='button'>add
+              option</button></a>
+        </div>
+        </div>
+        <button type="submit" method="POST" action="/polls">SUBMIT</button><br>
+      </form>
+    </section>
+  </main>
 </body>
+<script type="text/javascript" src="../public/scripts/client.js"></script>
+
 </html>

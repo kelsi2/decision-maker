@@ -1,7 +1,13 @@
+## Git Pull ##
+git checkout master
+git pull
+git checkout branch
+git merge master
+
 ## SITE PAGES (get routes) ##
 
 1. admin page (view poll and results) (get /admin/:admin_url) <--admin_url is the link given at poll creation
-2. Poll creation (get /new)
+DONE 2. Poll creation (get /polls)
 3. voting page (get /voter/:voter_url) <-- voting link given at poll creation
 DONE 4. landing page (create poll, what does the app do?) [get /]
 5. poll created, display admin and voter links after poll creation (/created)
@@ -17,7 +23,7 @@ DONE 4. landing page (create poll, what does the app do?) [get /]
 
 
 ## POST ROUTES ##
-1. Post '/' - Create new poll
+1. Post '/polls' - Create new poll
 2. post '/:poll_id/vote' - user submits vote
 3. post /delete/:poll_id - allows poll to be deleted
 4. post /edit/:poll_id - allows poll to be edited
