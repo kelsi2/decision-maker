@@ -18,7 +18,7 @@
 
 <body>
   <header>
-    <H1>Let me help you make up your mind</H1>
+    <h1>Let me help you make up your mind</h1>
   </header>
   <main>
     <section>
@@ -26,17 +26,18 @@
         <!-- enter email -->
         <input type="email" name="user_email" placeholder="e-mail@example.com"><br>
         <!-- enter title of poll  -->
-        <input type="text" name="poll_title" placeholder="title"><br>
+        <input type="text" name="poll_title" placeholder="Poll title"><br>
         <!-- what is your question?  -->
-        <input type="text" name="poll_question" placeholder="what would you like?"><br>
+        <input type="text" name="poll_question" placeholder="What do you want to decide?"><br>
         <!-- button  -->
         <div class="field_wrapper">
-          <input type="text" class="options" name="first_choice" placeholder="first option"><br>
-          <input type="text" class="options" name="second_choice" placeholder="second option"><br>
+          <input type="text" class="options" name="first_choice" placeholder="First Option"><br>
+          <input type="text" class="options" name="second_choice" placeholder="Second Option"><br>
+          <input type="text" class="options" name="third_choice" placeholder="Third Option"><br>
         </div>
         <button id="addOptionBtn" class="btn btn-primary">Add another option</button>
         </div>
-        <button type="submit" method="POST" action="/polls">SUBMIT</button><br>
+        <button type="submit" method="POST" action="/created">Submit</button><br>
       </form>
     </section>
   </main>
