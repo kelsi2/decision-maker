@@ -13,11 +13,12 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
     crossorigin="anonymous"></script>
+  <script type="text/javascript" src="/scripts/client.js"></script>
 </head>
 
 <body>
   <header>
-    <h1>Let me help you make up your mind</h1>
+    <H1>Let me help you make up your mind</H1>
   </header>
   <main>
     <section>
@@ -27,21 +28,18 @@
         <!-- enter title of poll  -->
         <input type="text" name="poll_title" placeholder="title"><br>
         <!-- what is your question?  -->
-        <input type="text" name="poll_question" placeholder="what would you like to decide?"><br>
+        <input type="text" name="poll_question" placeholder="what would you like?"><br>
         <!-- button  -->
         <div class="field_wrapper">
-          <input type="text" name="first_choice" placeholder="first option"><br>
-          <input type="text" name="second_choice" placeholder="second option"><br>
-          <input type="text" name="field_name[]" value="" />
-          <a href="javascript:void(0);" class="add_button" title="Add field"><button type='button'>add
-              option</button></a>
+          <input type="text" class="options" name="first_choice" placeholder="first option"><br>
+          <input type="text" class="options" name="second_choice" placeholder="second option"><br>
         </div>
+        <button id="addOptionBtn" class="btn btn-primary">Add another option</button>
         </div>
         <button type="submit" method="POST" action="/polls">SUBMIT</button><br>
       </form>
     </section>
   </main>
 </body>
-<script type="text/javascript" src="../public/scripts/client.js"></script>
 
 </html>

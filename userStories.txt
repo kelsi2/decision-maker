@@ -1,0 +1,13 @@
+## SITE PAGES ##
+
+1. admin page (view poll and results)
+2. Poll creation
+3. voting page
+4. landing page (create poll, what does the app do?)
+
+## BACKEND ##
+1. database
+2. routes
+
+## TODO ##
+1. HTML shell (one per page, for now just barebones what this page is)

@@ -6,7 +6,7 @@ git merge master
 
 ## SITE PAGES (get routes) ##
 
-1. admin page (view poll and results) (get /admin/:admin_url) <--admin_url is the link given at poll creation
+1. admin page (view poll results) (get /admin/:admin_url) <--admin_url is the link given at poll creation
 DONE 2. Poll creation (get /polls)
 3. voting page (get /voter/:voter_url) <-- voting link given at poll creation
 DONE 4. landing page (create poll, what does the app do?) [get /]
