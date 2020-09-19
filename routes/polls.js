@@ -25,12 +25,7 @@ router.get("/", (req, res) => {
 //submit new poll
 router.post('/', (req, res) => {
   console.log(req.body.user_email, req.body.poll_title, req.body.poll_question);
-  res.redirect('created');
-});
-
-//display links for admin (view poll results) and share link (for voting)
-router.get('/created', (req, res) => {
-  res.render('created');
+  res.redirect('polls');
 });
 
 module.exports = router;
