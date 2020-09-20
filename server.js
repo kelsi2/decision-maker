@@ -9,8 +9,6 @@ const bodyParser = require("body-parser");
 const sass = require("node-sass-middleware");
 const app = express();
 const morgan = require('morgan');
-const pollsRouter = require('./routes/polls');
-const created = require('./routes/create');
 const cookieSession = require('cookie-session');
 
 app.use(cookieSession({
@@ -20,6 +18,10 @@ app.use(cookieSession({
 
 // PG database client/connection setup
 
+
+const database = require('./database')
+const pollsRoute = require('./routes/polls');
+const created = require('./routes/create');
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -31,15 +33,20 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use("/styles", sass({
   src: __dirname + "/styles",
   dest: __dirname + "/public/styles",
-  debug: true,
+  debug: false,
   outputStyle: 'expanded'
 }));
 app.use(express.static("public"));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const pollsRoutes = require("./routes/polls.js");
+const pollRouter = express.Router();
+pollsRoute(pollRouter, database);
+app.use('/polls', pollRouter);
 
+const linkRouter = express.Router();
+created(linkRouter, database);
+app.use('/links', linkRouter);
 
 // Home page (create poll link, what does the app do?)
 // Warning: avoid creating more routes in this file!
@@ -47,10 +54,6 @@ const pollsRoutes = require("./routes/polls.js");
 app.get("/", (req, res) => {
   res.render("index");
 });
-
-app.use('/polls', pollsRouter);
-app.use('/links', created);
-
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
