@@ -47,6 +47,7 @@ exports.createNewPoll = createNewPoll;
  * @return {Promise<{}>} A promise to the option.
  */
 const addOption = function(option) {
+  console.log('test');
   return db.query(`
   INSERT INTO options(poll_id, data)
   VALUES ($1, $2)
