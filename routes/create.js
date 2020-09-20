@@ -1,12 +1,13 @@
+module.exports = function(router, database) {
 
-const express = require('express');
-const router = express.Router();
-const getUserByEmail = require('./db_queries');
+  router.get("/", (req, res) => {
+    res.render('links');
+  });
 
 router.get("/", (req, res) => {
   let email = req.session.user_email;
   let logged = getUserByEmail(email);
-  console.log(logged);
+  alert(logged);
   res.render('links');
 });
 
@@ -18,3 +19,5 @@ router.post('/', (req, res) => {
 
 module.exports = router;
 
+  return router;
+}

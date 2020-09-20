@@ -16,16 +16,15 @@ const generateRandomString = require('../lib/helperFunctions');
 //   voterURL: voterID,
 //   voteCount: 0
 // };
+module.exports = function(router, database) {
+  //create new poll
+  router.get("/", (req, res) => {
+    res.render('polls');
+  });
 
-//create new poll
-router.get("/", (req, res) => {
-  res.render('polls');
-});
-
-//submit new poll
-router.post('/', (req, res) => {
-  res.redirect('polls');
-});
-
-
-module.exports = router;
+  //submit new poll
+  router.post('/', (req, res) => {
+    res.redirect('polls');
+  });
+  return router;
+}

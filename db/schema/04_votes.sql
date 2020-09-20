@@ -1,4 +1,4 @@
--- Drop and recreate options table
+-- Drop and recreate votes table
 
 DROP TABLE IF EXISTS votes CASCADE;
 CREATE TABLE votes (
