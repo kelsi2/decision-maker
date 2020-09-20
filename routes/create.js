@@ -1,9 +1,5 @@
 module.exports = function(router, database) {
 
-  router.get("/", (req, res) => {
-    res.render('links');
-  });
-
 router.get("/", (req, res) => {
   let email = req.session.user_email;
   let logged = getUserByEmail(email);
