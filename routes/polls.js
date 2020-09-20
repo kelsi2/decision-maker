@@ -16,7 +16,7 @@ const generateRandomString = require('../lib/helperFunctions');
 //   voterURL: voterID,
 //   voteCount: 0
 // };
-module.exports = function(router, database) {
+module.exports = function(database) {
   //create new poll
   router.get("/", (req, res) => {
     res.render('polls');
