@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="/styles/form.css" type="text/css" />
+  <link href="https://fonts.googleapis.com/css2?family=Scope+One&display=swap" rel="stylesheet">
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
@@ -24,20 +25,25 @@
     <section>
       <form action="/links" method="POST">
         <!-- enter email -->
+        <label id="field-labels">Enter your email</label>
         <input type="email" name="user_email" placeholder="e-mail@example.com"><br>
         <!-- enter title of poll  -->
+        <label id="field-labels">What is your poll called?</label>
         <input type="text" name="poll_title" placeholder="Poll title"><br>
         <!-- what is your question?  -->
-        <input type="text" name="poll_question" placeholder="What do you want to decide?"><br>
+        <label id="field-labels">What do you want to decide?</label>
+        <input type="text" name="poll_question" placeholder="Ask your question!"><br>
         <!-- button  -->
+        <label id="field-labels">Poll options</label>
         <div class="field_wrapper">
-          <input type="text" class="options" name="first_choice" placeholder="First Option"><br>
-          <input type="text" class="options" name="second_choice" placeholder="Second Option"><br>
-          <input type="text" class="options" name="third_choice" placeholder="Third Option"><br>
+          <input type="text" class="options" name="options[0]" placeholder="First Option"><br>
+          <input type="text" class="options" name="options[1]" placeholder="Second Option"><br>
+          <input type="text" class="options" name="options[2]" placeholder="Third Option"><br>
         </div>
-        <button id="addOptionBtn" class="btn btn-primary">Add another option</button>
+        <div class="form-buttons">
+          <button id="addOptionBtn" class="make-a-poll">Add another option</button>
+          <button class="make-a-poll" type="submit" method="POST" action="/links">Submit</button><br>
         </div>
-        <button type="submit" method="POST" action="/links">Submit</button><br>
       </form>
     </section>
   </main>
