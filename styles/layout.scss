@@ -1,9 +1,28 @@
 // See: https://sass-lang.com/
 
 body {
-  background-color: #EEE;
+  background-color: #fffbfb;
 
   h1 {
-    color: #244751;
+    color: midnightblue;
+    display: flex;
+    justify-content: center;
+    padding: 300px;
+    padding-bottom: 10px
+  }
+
+  form {
+    display: flex;
+    justify-content: center;
+  }
+
+  .make-a-poll {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
   }
 }
