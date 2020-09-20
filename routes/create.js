@@ -6,7 +6,7 @@ const getUserByEmail = require('./db_queries');
 router.get("/", (req, res) => {
   let email = req.session.user_email;
   let logged = getUserByEmail(email);
-  console.log('logged');
+  console.log(logged);
   res.render('links');
 });
 
