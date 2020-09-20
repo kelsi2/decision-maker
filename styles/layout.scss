@@ -1,9 +1,22 @@
 // See: https://sass-lang.com/
 
 body {
-  background-color: #EEE;
+  background-color: #fffbfb;
 
   h1 {
     color: #244751;
+    display: flex;
+    justify-content: center;
   }
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
 }
