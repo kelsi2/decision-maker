@@ -4,7 +4,8 @@ const router = express.Router();
 module.exports = function(database) {
 
   router.get("/:pollId", (req, res) => {
-    res.render('links');
+    let id = req.params.pollId;
+    res.render('links', {id});
   });
 
   //submit new poll
