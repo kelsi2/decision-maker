@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const generateRandomString = require('../lib/helperFunctions');
 
 //Create new poll
 // router.post('/', (req, res) => {
@@ -27,4 +26,4 @@ module.exports = function(database) {
     res.redirect('polls');
   });
   return router;
-}
+};
