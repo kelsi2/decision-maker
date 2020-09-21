@@ -7,8 +7,9 @@
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/draggable.css" type="text/css" />
   <link href="https://fonts.googleapis.com/css2?family=Scope+One&display=swap" rel="stylesheet">
-
+  <script type="text/javascript" src="/scripts/drag.js" defer></script>
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
@@ -17,16 +18,18 @@
 <%-include("partials/_header") %>
 
 <body>
-  <main class = 'container'>
+  <main class='container'>
     <form action="/user/:pollId" method="POST">
-    <h1>Submit your vote</h1>
-    <%= dummy.poll_title %>
-    <%= dummy.poll_question %>
-    <%= dummy.option[0] %>
-    <%= dummy.option[1] %>
-    <%= dummy.option[2] %>
+      <h1>Submit your vote</h1>
+      <%= poll_title %>
+      <%= poll_question %>
+      <div class="sortable">
+        <p class='draggable' draggable="true"><%= option[0] %></p>
+        <p class='draggable' draggable="true"><%= option[1] %></p>
+        <p class='draggable' draggable="true"><%= option[2] %></p>
+      </div>
       <button class="make-a-poll" type="submit">Submit</button><br>
-  </form>
+    </form>
 </body>
 
 </html>

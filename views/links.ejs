@@ -7,21 +7,23 @@
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/links.css" type="text/css" />
   <link href="https://fonts.googleapis.com/css2?family=Scope+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
     crossorigin="anonymous"></script>
 </head>
-<%-include("partials/_header") %>
+<%- include("partials/_header") %>
 
 <body>
   <main>
     <h1>You made a poll!</h1>
     <!-- Links to share the poll and link to view the results -->
-    <a href="/user/<%= id %>">Share the poll with your friends</a><br>
-    <a href="/admin/<%= id %>">Checkout the results here</a><br>
+    <a id="poll-links" href="/user/<%= id %>">Share the poll with your friends</a><br>
+    <a id="poll-links" href="/admin/<%= id %>">Checkout the results here</a><br>
 
   </main>
 </body>
