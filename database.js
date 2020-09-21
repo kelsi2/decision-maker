@@ -47,7 +47,6 @@ exports.createNewPoll = createNewPoll;
  * @return {Promise<{}>} A promise to the option.
  */
 const addOption = function(option) {
-  console.log('test');
   return db.query(`
   INSERT INTO options(poll_id, data)
   VALUES ($1, $2)
@@ -59,6 +58,17 @@ const addOption = function(option) {
   .catch ((err) => console.log("query ADD error", err.stack));
 }
 
+const addUser = function(email) {
+  return db.query(`
+  INSERT INTO users (email)
+  VALUES ($1)
+  RETURNING *;
+  `, [email])
+  .then((res) =>{
+    return res.rows
+    })
+  .catch ((err) => console.log("query ADD error", err.stack));
+}
 
 
 exports.addOption = addOption;
