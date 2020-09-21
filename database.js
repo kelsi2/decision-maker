@@ -10,15 +10,15 @@ const getUserIdWithEmail = function(email) {
   SELECT * FROM users
   WHERE email = $1;
   `, [email])
-  .then((res) => {
-    if (res.rows.length > 0) {
-      return res.rows[0].id;
-    } else {
-      return null;
-    }
-   })
-   .catch ((err) => console.log("query ID error", err.stack));
-}
+    .then((res) => {
+      if (res.rows.length > 0) {
+        return res.rows[0].id;
+      } else {
+        return null;
+      }
+    })
+    .catch((err) => console.log("query ID error", err.stack));
+};
 
 exports.getUserIdWithEmail = getUserIdWithEmail;
 
@@ -33,11 +33,11 @@ const createNewPoll = function(poll) {
   VALUES ($1, $2, $3)
   RETURNING id;
   `, [poll.user_id, poll.poll_title, poll.poll_question])
-  .then((res) =>{
-  return res.rows[0].id
-  })
-  .catch ((err) => console.log("query CREATE error", err.stack));
-}
+    .then((res) => {
+      return res.rows[0].id;
+    })
+    .catch((err) => console.log("query CREATE error", err.stack));
+};
 
 exports.createNewPoll = createNewPoll;
 
@@ -52,11 +52,11 @@ const addOption = function(option) {
   VALUES ($1, $2)
   RETURNING *;
   `, [option.poll_id, option.data])
-  .then((res) =>{
-  return res.rows
-  })
-  .catch ((err) => console.log("query ADD error", err.stack));
-}
+    .then((res) => {
+      return res.rows;
+    })
+    .catch((err) => console.log("query ADD error", err.stack));
+};
 
 exports.addOption = addOption;
 
@@ -66,11 +66,11 @@ const addUser = function(email) {
   VALUES ($1)
   RETURNING *;
   `, [email])
-  .then((res) =>{
-    return res.rows
+    .then((res) => {
+      return res.rows;
     })
-  .catch ((err) => console.log("query ADD error", err.stack));
-}
+    .catch((err) => console.log("query ADD error", err.stack));
+};
 
 exports.addUser = addUser;
 
@@ -81,7 +81,7 @@ const getPolls = function(pollId) {
   JOIN polls ON polls.id = poll_id
   WHERE poll_id = $1
   `, [pollId])
-  .then(res => res.rows)
-}
+    .then(res => res.rows);
+};
 
 exports.getPolls = getPolls;
