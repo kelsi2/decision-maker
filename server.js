@@ -44,7 +44,6 @@ const adminRoute = require('./routes/admin');
 app.use('/polls', pollsRoute(database));
 app.use('/links', linksRoute(database));
 app.use('/user', userRoute(database));
-app.use('/admin', adminRoute(database));
 // Home page (create poll link, what does the app do?)
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
