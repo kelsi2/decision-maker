@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/form.css" type="text/css" />
   <link href="https://fonts.googleapis.com/css2?family=Scope+One&display=swap" rel="stylesheet">
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
@@ -18,17 +19,17 @@
 <%-include("partials/_header") %>
 
 <body>
-  <main class = 'container'>
+  <main class='container'>
     <form action="/user/:pollId" method="POST">
-    <h1>Submit your vote</h1>
-    <%= dummy.poll_title %>
-    <%= dummy.poll_question %>
-    <%= dummy.option[0] %>
-    <%= dummy.option[1] %>
-    <%= dummy.option[2] %>
+      <h1>Submit your vote</h1>
+      <%= dummy.poll_title %>
+      <%= dummy.poll_question %>
+      <%= dummy.option[0] %>
+      <%= dummy.option[1] %>
+      <%= dummy.option[2] %>
       <button class="make-a-poll" type="submit">Submit</button><br>
-  </form>
+    </form>
 </body>
-<script type="text/javascript" src="../public/scripts/client.js"></script>
+<script type="text/javascript" src="/scripts/survey.js"></script>
 
 </html>
