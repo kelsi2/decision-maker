@@ -72,6 +72,8 @@ const addUser = function(email) {
   .catch ((err) => console.log("query ADD error", err.stack));
 }
 
+exports.addUser = addUser;
+
 const getPolls = function(pollId) {
   return db.query(`
   SELECT options.id, options.data, polls.title, polls.description

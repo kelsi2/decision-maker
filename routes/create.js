@@ -1,7 +1,8 @@
-const mailgunConfig = require('./config');
+require('dotenv').config();
+// const mailgunConfig = require('./config');
 const express = require('express');
 const router = express.Router();
-//const mailgun = require('mailgun-js')({apiKey: mailgunConfig.api_key, domain: mailgunConfig.domain});
+const mailgun = require('mailgun-js')({apiKey: process.env.API_KEY, domain: process.env.MGDOMAIN});
 
 module.exports = function(database) {
 
@@ -31,15 +32,15 @@ module.exports = function(database) {
       return Promise.all(promiseArray)
     })
     .then((result) => {
-      // const data = {
-      //   from: 'Best Devs Ever <bestdevs@bestdevs.com>',
-      //   to: 'useremail@here',
-      //   subject: 'Hello',
-      //   text: 'Testing some Mailgun awesomness!'
-      // };
-      // mailgun.messages().send(data, function (error, body) {
-      //   console.log(body);
-      // });
+      const data = {
+        from: 'Best Devs Ever <bestdevs@bestdevs.com>',
+        to: 'useremail@here',
+        subject: 'Hello',
+        text: 'Testing some Mailgun awesomness!'
+      };
+      mailgun.messages().send(data, function (error, body) {
+        console.log(body);
+      });
       res.redirect(`/links/${result}`);
     })
     .catch ((err) => console.log("POST: ", err.stack));
