@@ -31,6 +31,7 @@ module.exports = function(database) {
       return Promise.all(promiseArray)
     })
     .then((result) => {
+<<<<<<< HEAD
       // const data = {
       //   from: 'Best Devs Ever <bestdevs@bestdevs.com>',
       //   to: 'useremail@here',
@@ -40,6 +41,8 @@ module.exports = function(database) {
       // mailgun.messages().send(data, function (error, body) {
       //   console.log(body);
       // });
+=======
+>>>>>>> master
       res.redirect(`/links/${result}`);
     })
     .catch ((err) => console.log("POST: ", err.stack));

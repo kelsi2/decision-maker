@@ -11,15 +11,10 @@ const dummy = {
 
 module.exports = function(database) {
   router.get("/:pollId", (req,res) => {
+
     const templateLiteral = {dummy}
-    res.render("vote", templateLiteral);
+    res.render("poll_admin", templateLiteral);
   })
-
-  router.post("/:pollId", (req,res) => {
-    //big fat query
-    res.render('vote_confirm');
-  })
-
 
 
 
