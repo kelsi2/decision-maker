@@ -11,7 +11,7 @@ const getUserIdWithEmail = function(email) {
   WHERE email = $1;
   `, [email])
     .then((res) => {
-      if (res) {
+      if (res.rows.length > 0) {
         return res.rows[0].id;
       } else {
         return null;
@@ -58,6 +58,28 @@ const addOption = function(option) {
     .catch((err) => console.log("query ADD error", err.stack));
 };
 
-
-
 exports.addOption = addOption;
+
+const addUser = function(email) {
+  return db.query(`
+  INSERT INTO users (email)
+  VALUES ($1)
+  RETURNING *;
+  `, [email])
+    .then((res) => {
+      return res.rows;
+    })
+    .catch((err) => console.log("query ADD error", err.stack));
+};
+
+const getPolls = function(pollId) {
+  return db.query(`
+  SELECT options.id, options.data, polls.title, polls.description
+  FROM options
+  JOIN polls ON polls.id = poll_id
+  WHERE poll_id = $1
+  `, [pollId])
+    .then(res => res.rows);
+};
+
+exports.getPolls = getPolls;

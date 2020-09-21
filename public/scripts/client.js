@@ -10,6 +10,22 @@ jQuery(document).ready(function() {
       .attr('placeholder', `Extra Option`));
   });
 
+  $('.form_email').on('blur', function() {
+    const email = $('.form_email').val();
+    if (email != '') {
+      $.ajax({
+        url: '/user/email_check',
+        type: 'post',
+        data: {
+          email
+        },
+        success: function(data) {
+          console.log('success');
+          console.log(data);
+      }
+      });
+    }
+  })
 
 
 });
