@@ -2,34 +2,50 @@
 <html lang="en">
 
 <head>
-  <title>Poll Voting</title>
-
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <!-- jQuery UI CDN -->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="/styles/draggable.css" type="text/css" />
-  <link href="https://fonts.googleapis.com/css2?family=Scope+One&display=swap" rel="stylesheet">
-  <script type="text/javascript" src="/scripts/drag.js" defer></script>
-  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-    crossorigin="anonymous"></script>
+  <script>
+    $(function() {
+      $("#sortable").sortable();
+    });
+  </script>
+  ​
+  <title>Poll Voting</title>
 </head>
 <%-include("partials/_header") %>
+​
 
 <body>
-  <main class='container'>
-    <form action="/user/:pollId" method="POST">
-      <h1>Submit your vote</h1>
-      <%= poll_title %>
-      <%= poll_question %>
-      <div class="sortable">
-        <p class='draggable' draggable="true"><%= option[0] %></p>
-        <p class='draggable' draggable="true"><%= option[1] %></p>
-        <p class='draggable' draggable="true"><%= option[2] %></p>
-      </div>
-      <button class="make-a-poll" type="submit">Submit</button><br>
-    </form>
+  <main class="container">
+    <h1>Submit your vote</h1>
+    <div class="poll-container">
+      <h1 class="poll-question"><%= poll_title %></h1>
+      <form action="/user/<%= id %>" method="POST">
+        <ul id="sortable">
+          <% options.forEach((option, i) => { %>
+          <li class="draggable">
+            <span>Option <%= i + 1 %> : <%= option %></span>
+            <input type='hidden' name='options[]' value='<%= option %>' /></li>
+          </li>
+          <%  }) %>
+        </ul>
+        ​
+        <button class="make-a-poll" type="submit">Submit</button>
+      </form>
+
+      <!--
+        https://stackoverflow.com/questions/33451053/req-locals-vs-res-locals-vs-res-data-vs-req-data-vs-app-locals-in-express-mi
+
+        http://expressjs.com/en/api.html#res.locals
+      -->
+    </div>
+    </div>
 </body>
 
 </html>
