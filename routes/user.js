@@ -11,8 +11,17 @@ const dummy = {
 
 module.exports = function(database) {
   router.get("/:pollId", (req,res) => {
-    const templateLiteral = {dummy}
-    res.render("vote", templateLiteral);
+    database.getPolls(1)
+    .then(polls => {
+      const templateVars = {
+        poll_title: polls[0].title,
+        poll_question: polls[0].description,
+        option: [polls[0].data, polls[1].data, polls[2].data]
+      }
+      res.render("vote", templateVars);
+    })
+    // const templateLiteral = {dummy}
+    // res.render("vote", templateLiteral);
   })
 
   router.post("/:pollId", (req,res) => {

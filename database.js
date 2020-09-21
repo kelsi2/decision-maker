@@ -58,6 +58,8 @@ const addOption = function(option) {
   .catch ((err) => console.log("query ADD error", err.stack));
 }
 
+exports.addOption = addOption;
+
 const addUser = function(email) {
   return db.query(`
   INSERT INTO users (email)
@@ -70,5 +72,14 @@ const addUser = function(email) {
   .catch ((err) => console.log("query ADD error", err.stack));
 }
 
+const getPolls = function(pollId) {
+  return db.query(`
+  SELECT options.id, options.data, polls.title, polls.description
+  FROM options
+  JOIN polls ON polls.id = poll_id
+  WHERE poll_id = $1
+  `, [pollId])
+  .then(res => res.rows)
+}
 
-exports.addOption = addOption;
+exports.getPolls = getPolls;

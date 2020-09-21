@@ -40,7 +40,7 @@ module.exports = function(database) {
       // mailgun.messages().send(data, function (error, body) {
       //   console.log(body);
       // });
-      res.redirect(`/links/${result}`);
+      res.redirect(`/links/${result}`,result);
     })
     .catch ((err) => console.log("POST: ", err.stack));
   })
