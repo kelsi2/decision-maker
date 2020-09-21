@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link href="https://fonts.googleapis.com/css2?family=Scope+One&display=swap" rel="stylesheet">
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
@@ -18,8 +19,10 @@
 
 <body>
   <main>
-    <h1>Share the poll with your friends</h1>
-    <!-- Links to share the poll and view the results (admin page) -->
+    <h1>You made a poll!</h1>
+    <!-- Links to share the poll and link to view the results -->
+    <a href="/user/<%= id %>">Share the poll with your friends</a><br>
+    <a href="/admin/<%= id %>">Checkout the results here</a><br>
 
   </main>
 </body>
