@@ -10,15 +10,15 @@ const getUserIdWithEmail = function(email) {
   SELECT * FROM users
   WHERE email = $1;
   `, [email])
-  .then((res) => {
-    if (res) {
-      return res.rows[0].id;
-    } else {
-      return null;
-    }
-   })
-   .catch ((err) => console.log("query ID error", err.stack));
-}
+    .then((res) => {
+      if (res) {
+        return res.rows[0].id;
+      } else {
+        return null;
+      }
+    })
+    .catch((err) => console.log("query ID error", err.stack));
+};
 
 exports.getUserIdWithEmail = getUserIdWithEmail;
 
@@ -33,11 +33,11 @@ const createNewPoll = function(poll) {
   VALUES ($1, $2, $3)
   RETURNING id;
   `, [poll.user_id, poll.poll_title, poll.poll_question])
-  .then((res) =>{
-  return res.rows[0].id
-  })
-  .catch ((err) => console.log("query CREATE error", err.stack));
-}
+    .then((res) => {
+      return res.rows[0].id;
+    })
+    .catch((err) => console.log("query CREATE error", err.stack));
+};
 
 exports.createNewPoll = createNewPoll;
 
@@ -47,17 +47,16 @@ exports.createNewPoll = createNewPoll;
  * @return {Promise<{}>} A promise to the option.
  */
 const addOption = function(option) {
-  console.log('test');
   return db.query(`
   INSERT INTO options(poll_id, data)
   VALUES ($1, $2)
   RETURNING *;
   `, [option.poll_id, option.data])
-  .then((res) =>{
-  return res.rows
-  })
-  .catch ((err) => console.log("query ADD error", err.stack));
-}
+    .then((res) => {
+      return res.rows;
+    })
+    .catch((err) => console.log("query ADD error", err.stack));
+};
 
 
 
