@@ -11,7 +11,8 @@ const dummy = {
 
 module.exports = function(database) {
   router.get("/:pollId", (req,res) => {
-    database.getPolls(1)
+    console.log(req.params);
+    database.getPolls(req.params.pollId)
     .then(polls => {
       const templateVars = {
         poll_title: polls[0].title,
