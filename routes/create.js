@@ -31,15 +31,15 @@ module.exports = function(database) {
       return Promise.all(promiseArray)
     })
     .then((result) => {
-      const data = {
-        from: 'Best Devs Ever <bestdevs@bestdevs.com>',
-        to: 'useremail@here',
-        subject: 'Hello',
-        text: 'Testing some Mailgun awesomness!'
-      };
-      mailgun.messages().send(data, function (error, body) {
-        console.log(body);
-      });
+      // const data = {
+      //   from: 'Best Devs Ever <bestdevs@bestdevs.com>',
+      //   to: 'useremail@here',
+      //   subject: 'Hello',
+      //   text: 'Testing some Mailgun awesomness!'
+      // };
+      // mailgun.messages().send(data, function (error, body) {
+      //   console.log(body);
+      // });
       res.redirect(`/links/${result}`);
     })
     .catch ((err) => console.log("POST: ", err.stack));
