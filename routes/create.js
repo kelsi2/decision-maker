@@ -1,7 +1,7 @@
 const mailgunConfig = require('./config');
 const express = require('express');
 const router = express.Router();
-const mailgun = require('mailgun-js')({apiKey: mailgunConfig.api_key, domain: mailgunConfig.domain});
+//const mailgun = require('mailgun-js')({apiKey: mailgunConfig.api_key, domain: mailgunConfig.domain});
 
 module.exports = function(database) {
 

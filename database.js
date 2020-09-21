@@ -62,14 +62,24 @@ exports.addOption = addOption;
 
 const addUser = function(email) {
   return db.query(`
-  INSERT INTO users(email)
+  INSERT INTO users (email)
   VALUES ($1)
   RETURNING *;
   `, [email])
   .then((res) =>{
-  return res.rows
-  })
+    return res.rows
+    })
   .catch ((err) => console.log("query ADD error", err.stack));
 }
 
-exports.addUser = addUser;
+const getPolls = function(pollId) {
+  return db.query(`
+  SELECT options.id, options.data, polls.title, polls.description
+  FROM options
+  JOIN polls ON polls.id = poll_id
+  WHERE poll_id = $1
+  `, [pollId])
+  .then(res => res.rows)
+}
+
+exports.getPolls = getPolls;
