@@ -14,10 +14,14 @@ module.exports = function(database) {
     console.log(req.params);
     database.getPolls(req.params.pollId)
     .then(polls => {
+      let options = []
+      polls.forEach(poll => {
+        options.push(poll.data);
+      })
       const templateVars = {
         poll_title: polls[0].title,
         poll_question: polls[0].description,
-        option: [polls[0].data, polls[1].data, polls[2].data]
+        option: options
       }
       res.render("vote", templateVars);
     })
