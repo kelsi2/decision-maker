@@ -22,7 +22,12 @@
     <h1>Here are your polls</h1>
 
   </main>
-  <canvas id="myChart" width="400" height="400"></canvas>
+  <form class = 'slider' id='checkPoll'>
+    <label for='adminEmail'>Email</label>
+    <input type = 'email' id='adminEmail'  placeholder='your@email.com'>
+    <button type='submit'>check your results here</button>
+</form>
+  <canvas id="myChart" width="400" height="400" style = 'display:none'></canvas>
   <script type='text/javascript'>
     let ctx = "myChart";
     const templateArray = <%- JSON.stringify(data) %>;
@@ -71,6 +76,17 @@
         }
       }
     });
+  </script>
+
+  <script>
+    $('#checkPoll').submit(function(e) {
+      const input = $('#adminEmail').val();
+      e.preventDefault();
+      if (input == <%-JSON.stringify(email) %>)
+      {
+      $('#myChart').slideDown('slow');
+      }
+    })
   </script>
 </body>
 

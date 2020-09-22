@@ -17,7 +17,8 @@ module.exports = function(database) {
             const templateVars = {
               data: object,
               title: result[0].title,
-              description: result[0].description
+              description: result[0].description,
+              email: 'a@a.com'
             };
             res.render("poll_admin", templateVars);
           })
