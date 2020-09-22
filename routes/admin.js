@@ -1,7 +1,7 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
-module.exports = function(database) {
+module.exports = function (database) {
   router.get("/:pollId", (req, res) => {
     const pollId = req.params.pollId;
     database.getPoll(pollId)
@@ -31,6 +31,7 @@ module.exports = function(database) {
   router.get("/", (req, res) => {
     res.render('my_polls');
   });
+
 
   return router;
 };
