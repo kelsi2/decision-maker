@@ -18,12 +18,18 @@ module.exports = function(database) {
               data: object,
               title: result[0].title,
               description: result[0].description,
-              email: 'a@a.com'
+              email: result[0].email
             };
             res.render("poll_admin", templateVars);
           })
           .catch((err) => console.log(err));
       });
+
+
+  });
+
+  router.get("/", (req, res) => {
+    res.render('my_polls');
   });
 
   return router;

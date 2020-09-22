@@ -105,9 +105,10 @@ exports.getUserIdWithEmail = getUserIdWithEmail;
  */
 const getPoll = function(pollId) {
   return db.query(`
-  SELECT options.id, options.data, polls.title, polls.description
+  SELECT options.id, options.data, polls.title, polls.description, users.email
   FROM options
   JOIN polls ON polls.id = poll_id
+  JOIN users ON users.id = creator_id
   WHERE poll_id = $1
   `, [pollId])
   .then(res => res.rows)
@@ -171,3 +172,5 @@ const getTotalRank = function(option_id, poll_id) {
 };
 
 exports.getTotalRank = getTotalRank;
+
+
