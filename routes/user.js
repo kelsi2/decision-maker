@@ -1,14 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-const dummy = {
-  poll_title: 'This is dumb',
-  poll_question: 'What is your quest?',
-  option: [
-    'dumb1', 'dumber2', 'reallydumb'
-  ]
-};
-
 module.exports = function(database) {
   // Get data from Database.
   router.get("/:pollId", (req, res) => {
@@ -24,7 +16,6 @@ module.exports = function(database) {
           poll_question: polls[0].description,
           options: options
         };
-        console.log(templateVars);
         res.render("vote", templateVars);
       });
     // const templateLiteral = {dummy}
@@ -42,8 +33,15 @@ module.exports = function(database) {
 
   // What purpose does this route serve?
   router.post("/:pollId", (req, res) => {
-    console.log(':pollId req.body', req.body);
-    //big fat query
+    const options = req.body.options;
+    const name = req.body.username;
+    options.forEach((option, index) => {
+      const rank = options.length-index;
+      database.getOptionIdFromData(option,req.params.pollId)
+      .then((id) =>  {
+        database.addVotes(name,id,rank)
+      });
+    });
     res.render('vote_confirm');
   });
 

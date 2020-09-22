@@ -1,3 +1,4 @@
+const bodyParser = require('body-parser');
 const db = require('./db');
 
 /**
@@ -85,3 +86,43 @@ const getPolls = function(pollId) {
 };
 
 exports.getPolls = getPolls;
+
+const getOptionIdFromData = function(option, poll_id) {
+  return db.query(`
+  SELECT options.id
+  FROM options
+  WHERE data LIKE $1
+  AND poll_id = $2`, [option,poll_id])
+  .then((res) => {
+    return res.rows[0].id
+  })
+  .catch((err) => console.log("query error", err.stack))
+}
+
+exports.getOptionIdFromData = getOptionIdFromData;
+
+const addVotes = function(user_id, option_id, rank) {
+  return db.query(`
+  INSERT INTO votes (user_id, option_id, rank)
+  VALUES ($1, $2, $3);`, [user_id, option_id, rank])
+  .then((res) => {
+    return res.rows;
+  })
+  .catch((err) => console.log("query ADD error", err.stack));
+}
+
+exports.addVotes = addVotes;
+
+const getTotalRank = function(option_id) {
+  return db.query(`
+  SELECT SUM(rank)
+  FROM votes
+  WHERE option_id = $1
+  GROUP BY option_id`, [option_id])
+  .then((res) => {
+    return res.rows[0]
+  })
+  .catch((err) => console.log("query RANK error", err.stack));
+}
+
+exports.getTotalRank = getTotalRank;
