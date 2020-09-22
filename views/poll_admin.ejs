@@ -28,8 +28,22 @@
     </main>
     <canvas id="myChart"></canvas>
     <script type="text/javascript">
+
+      function compare(a, b){
+        // a should come before b in the sorted order
+        if(a.sum > b.sum){
+                return -1;
+        // a should come after b in the sorted order
+        }else if(a.sum > b.sum){
+                return 1;
+        // and and b are the same
+        }else{
+                return 0;
+        }
+      }
       let ctx = "myChart";
-      const templateArray = <%- JSON.stringify(data) %>;
+      const templateArray = <%- JSON.stringify(data) %>.sort(compare);
+
       const chartTitle = <%- JSON.stringify(title) %>;
       const data_array = [];
       const descriptions_array = [];
