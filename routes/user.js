@@ -21,7 +21,8 @@ module.exports = function(database) {
       };
       console.log(templateVars);
       res.render("vote", templateVars);
-    });
+    })
+    .catch((err) => console.log(err.stack));
   });
 
   router.post("/email_check", (req, res) => {
@@ -30,7 +31,8 @@ module.exports = function(database) {
         if (res === null) {
           database.createUser(req.body.email);
         }
-      });
+      })
+      .catch((err) => console.log(err.stack));
   });
 
   // What purpose does this route serve?
@@ -42,7 +44,8 @@ module.exports = function(database) {
       database.getOptionIdFromData(option,req.params.pollId)
       .then((id) =>  {
         database.createVote(name,id,rank)
-      });
+      })
+      .catch((err) => console.log(err.stack));
     });
     database.getEmailFromPollId(req.params.pollId)
     .then (emailObj => {
@@ -60,6 +63,7 @@ module.exports = function(database) {
         console.log(body);
       });
     })
+    .catch((err) => console.log(err.stack));
     res.render('vote_confirm');
   });
 
