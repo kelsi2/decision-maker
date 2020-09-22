@@ -7,7 +7,7 @@ const mailgun = require('mailgun-js')({apiKey: process.env.API_KEY, domain: proc
 module.exports = function(database) {
   // Get data from Database.
   router.get("/:pollId", (req, res) => {
-    database.getPolls(req.params.pollId)
+    database.getPoll(req.params.pollId)
     .then(polls => {
       let options = [];
       polls.forEach(poll => {
@@ -28,7 +28,7 @@ module.exports = function(database) {
     database.getUserIdWithEmail(req.body.email)
       .then((res) => {
         if (res === null) {
-          database.addUser(req.body.email);
+          database.createUser(req.body.email);
         }
       });
   });
@@ -41,10 +41,10 @@ module.exports = function(database) {
       const rank = options.length-index;
       database.getOptionIdFromData(option,req.params.pollId)
       .then((id) =>  {
-        database.addVotes(name,id,rank)
+        database.createVote(name,id,rank)
       });
     });
-    database.getEmailFromOptionsData(options[0],req.params.pollId)
+    database.getEmailFromPollId(req.params.pollId)
     .then (emailObj => {
       const data = {
         from: 'Best Devs Ever <bestdevs@bestdevs.com>',
@@ -59,7 +59,6 @@ module.exports = function(database) {
       mailgun.messages().send(data, function (error, body) {
         console.log(body);
       });
-      res.redirect(`/links/${emailObj.id}`);
     })
     res.render('vote_confirm');
   });
