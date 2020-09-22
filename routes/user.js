@@ -8,22 +8,29 @@ module.exports = function(database) {
   // Get data from Database.
   router.get("/:pollId", (req, res) => {
     database.getPolls(req.params.pollId)
-      .then(polls => {
-        let options = [];
-        polls.forEach(poll => {
-          options.push(poll.data);
-        });
-        const templateVars = {
-          id: req.params.pollId,
-          poll_title: polls[0].title,
-          poll_question: polls[0].description,
-          options: options
-        };
-        console.log(templateVars);
-        res.render("vote", templateVars);
+    .then(polls => {
+      let options = [];
+      polls.forEach(poll => {
+        options.push(poll.data);
       });
-    // const templateLiteral = {dummy}
-    // res.render("vote", templateLiteral);
+      const templateVars = {
+        id: req.params.pollId,
+        poll_title: polls[0].title,
+        poll_question: polls[0].description,
+        options: options
+      };
+      console.log(templateVars);
+      res.render("vote", templateVars);
+    });
+  });
+
+  router.post("/email_check", (req, res) => {
+    database.getUserIdWithEmail(req.body.email)
+      .then((res) => {
+        if (res === null) {
+          database.addUser(req.body.email);
+        }
+      });
   });
 
   // What purpose does this route serve?
