@@ -34,13 +34,14 @@
         <input type="text" name="poll_question" placeholder="Ask your question!"><br>
         <!-- button  -->
         <label id="field-labels">Poll options</label>
-        <div class="field_wrapper">
-          <input type="text" class="options" name="options[0]" placeholder="First Option"><br>
-          <input type="text" class="options" name="options[1]" placeholder="Second Option"><br>
-          <input type="text" class="options" name="options[2]" placeholder="Third Option"><br>
+        <div id ="field_wrapper">
+          <input type="text"  class="options" name="options[0]" placeholder="First Option">
+          <input type="text"  class="options" name="options[1]" placeholder="Second Option">
+          <input type="text"  class="options" name="options[2]" placeholder="Third Option">
         </div>
         <div class="form-buttons">
           <button id="addOptionBtn" class="make-a-poll">Add another option</button>
+          <button type="button" class="make-a-poll" id="deletebtn">remvove option</button>
           <button class="make-a-poll" type="submit" method="POST" action="/links">Submit</button><br>
         </div>
       </form>

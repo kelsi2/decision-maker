@@ -18,8 +18,9 @@ module.exports = function(database) {
         return database.getTotalRank(option.id,pollId)
       })
       return Promise.all(promiseArray)
-      .then((result) => {
-          console.log(result)
+      .then((object) => {
+          console.log('object', object);
+          console.log('result',result);
           res.render("poll_admin");
         })
     })

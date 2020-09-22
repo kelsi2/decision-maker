@@ -32,3 +32,8 @@ form {
   color: midnightblue;
   font-weight: 600;
 }
+
+#field_wrapper {
+  display: flex;
+  flex-direction: column;
+}
