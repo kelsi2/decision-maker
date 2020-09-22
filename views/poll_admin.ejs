@@ -1,77 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Poll Admin</title>
 
-<head>
-  <title>Poll Admin</title>
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Scope+One&display=swap"
+      rel="stylesheet"
+    />
 
-  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-  <link href="https://fonts.googleapis.com/css2?family=Scope+One&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <%-include("partials/_header") %>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-    crossorigin="anonymous"></script>
-</head>
-<%-include("partials/_header") %>
-
-<body>
-  <main>
-    <h1>Here are your polls</h1>
-
-  </main>
-  <canvas id="myChart" width="400" height="400"></canvas>
-  <script type='text/javascript'>
-    let ctx = "myChart";
-    const templateArray = <%- JSON.stringify(data) %>;
-    const chartTitle = <%- JSON.stringify(title) %>;
-    const data_array = [];
-    const descriptions_array = [];
-    templateArray.forEach(object => {
-      data_array.push(object.sum)
-      descriptions_array.push(object.data)
-    })
-    console.log(data_array);
-    console.log(descriptions_array);
-    let myChart = new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: descriptions_array,
-        datasets: [{
-          label: chartTitle,
-          data: data_array,
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
-          ],
-          borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-          ],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true
-            }
+  <body>
+    <main>
+      <h1>Here are your polls</h1>
+    </main>
+    <canvas id="myChart"></canvas>
+    <script type="text/javascript">
+      let ctx = "myChart";
+      const templateArray = <%- JSON.stringify(data) %>;
+      const chartTitle = <%- JSON.stringify(title) %>;
+      const data_array = [];
+      const descriptions_array = [];
+      templateArray.forEach(object => {
+        data_array.push(object.sum)
+        descriptions_array.push(object.data)
+      })
+      Chart.defaults.global.defaultFontFamily = "'Scope One', serif";
+      Chart.defaults.global.defaultFontSize = 25;
+      let myChart = new Chart(ctx, {
+        type: 'horizontalBar',
+        data: {
+          labels: descriptions_array,
+          datasets: [{
+            label: 'Votes',
+            data: data_array,
+            backgroundColor: [
+              '#3E517A',
+              '#93E1D8',
+              '#A63446',
+              '#EE6055'
+            ],
+            borderColor: [
+              '#293651',
+              '#4FCFC0',
+              '#7C2734',
+              '#EE6055'
+            ],
+            borderWidth: 2
           }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: true,
+          title: {
+            display: true,
+            text: chartTitle,
+            fontSize: 30
+          },
+          scales: {
+            xAxes: [{
+              ticks: {
+                beginAtZero: true,
+                stepSize: 1
+              },
+              gridLines: {
+                display: false
+              }
+            }],
+            yAxes: [{
+              gridLines: {
+                display: false
+              }
+            }]
+          },
+          layout: {
+            padding: {
+              left: 20,
+              right: 40,
+              top: 30,
+              bottom: 30
+            }
+          }
         }
-      }
-    });
-  </script>
-</body>
-
+      });
+    </script>
+  </body>
 </html>
