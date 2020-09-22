@@ -15,6 +15,7 @@ module.exports = function(database) {
     const options = req.body.options;
     database.getUserIdWithEmail(req.body.user_email)
     .then( userId => {
+      req.session.id = userId;
       const poll = {
         user_id: userId,
         poll_title: req.body.poll_title,
@@ -26,7 +27,7 @@ module.exports = function(database) {
       const promiseArray = [];
       promiseArray.push(pollId);
       promiseArray.push = options.map((option) => {
-        return database.addOption({poll_id: pollId, data: option})
+        return database.createOption({poll_id: pollId, data: option})
       });
       return Promise.all(promiseArray)
     })
