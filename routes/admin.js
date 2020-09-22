@@ -9,10 +9,8 @@ module.exports = function (database) {
         return database.getTotalRank(option.id, pollId);
       });
       return Promise.all(promiseArray)
-        .then((object) => {
-          console.log("object", object);
-          console.log("result", result);
 
+        .then((object) => {
           const templateVars = {
             data: object,
             title: result[0].title,
@@ -22,18 +20,6 @@ module.exports = function (database) {
         })
         .catch((err) => console.log(err));
     });
-    return Promise.all(promiseArray)
-
-      .then((object) => {
-        const templateVars = {
-          data: object,
-          title: result[0].title,
-          description: result[0].description,
-        };
-        res.render("poll_admin", templateVars);
-      })
-      .catch((err) => console.log(err));
   });
-
   return router;
 };
