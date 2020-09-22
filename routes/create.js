@@ -31,17 +31,26 @@ module.exports = function(database) {
       return Promise.all(promiseArray)
     })
     .then((result) => {
+      const pollId = result[0];
+      return database.getEmailFromPollId(pollId)
+    })
+    .then(emailObj=> {
       const data = {
         from: 'Best Devs Ever <bestdevs@bestdevs.com>',
-        to: 'emailgoeshere',
-        subject: 'Hello',
-        text: 'Testing some Mailgun awesomness!'
+        to: emailObj.email,
+        subject: `A new poll ${emailObj.id} has been created!`,
+        text: `Hi! \n
+        Here's your administrative link: localhost:5000/admin/${emailObj.id} \n
+        Here's the link to send to your voters: localhost:5000/user/${emailObj.id} \n\n
+        Thanks for using the best decision maker ever created!`
       };
       mailgun.messages().send(data, function (error, body) {
         console.log(body);
       });
-      res.redirect(`/links/${result}`);
-    })
+      res.redirect(`/links/${emailObj.id}`);
+      })
+
+
     .catch ((err) => console.log("POST: ", err.stack));
   })
   return router;
