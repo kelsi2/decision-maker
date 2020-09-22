@@ -1,5 +1,7 @@
+require('dotenv').config();
 const express = require('express');
 const router = express.Router();
+const mailgun = require('mailgun-js')({apiKey: process.env.API_KEY, domain: process.env.MGDOMAIN});
 
 
 module.exports = function(database) {

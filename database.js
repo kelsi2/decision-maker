@@ -87,6 +87,17 @@ const getPolls = function(pollId) {
 
 exports.getPolls = getPolls;
 
+const getEmailFromPollId = function(pollId) {
+  return db.query(`
+  SELECT email, polls.id
+  FROM users
+  JOIN polls ON polls.creator_id = users.id
+  WHERE polls.id = $1`, [pollId])
+  .then(res => res.rows[0]);
+};
+
+exports.getEmailFromPollId = getEmailFromPollId;
+
 const getOptionIdFromData = function(option, poll_id) {
   return db.query(`
   SELECT options.id
@@ -122,7 +133,23 @@ const getTotalRank = function(option_id) {
   .then((res) => {
     return res.rows[0]
   })
-  .catch((err) => console.log("query RANK error", err.stack));
+  .catch((err) => console.log("query error", err.stack));
 }
 
 exports.getTotalRank = getTotalRank;
+
+const getEmailFromOptionsData = function(option_data, poll_id) {
+  return db.query(`
+  SELECT email, polls.id
+  FROM users
+  JOIN polls ON users.id = creator_id
+  JOIN options ON polls.id = poll_id
+  WHERE options.data LIKE $1
+  AND poll_id = $2`, [option_data, poll_id])
+  .then((res) => {
+    return res.rows[0]
+  })
+  .catch((err) => console.log("query error", err.stack));
+}
+
+exports.getEmailFromOptionsData = getEmailFromOptionsData;
