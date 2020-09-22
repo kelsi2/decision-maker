@@ -26,108 +26,124 @@
     <main>
       <h1>Here are your polls</h1>
     </main>
-    <form class = 'slider' id='checkPoll'>
-      <label for='adminEmail'>Email</label>
-      <input type = 'email' id='adminEmail'  placeholder='your@email.com'>
-      <button type='submit'>check your results here</button>
-  </form>
-  <canvas id="myChart" width="100" height="100" style = 'display:none'></canvas>
+    <form class="slider" id="checkPoll">
+      <label for="adminEmail">Email</label>
+      <input type="email" id="adminEmail" placeholder="your@email.com" />
+      <button type="submit">check your results here</button>
+    </form>
+    <canvas id="myChart" height="30%" width="70%"></canvas>
     <script type="text/javascript">
-      function compare(a, b){
-        // a should come before b in the sorted order
-        if(a.sum > b.sum){
-                return -1;
-        // a should come after b in the sorted order
-        }else if(a.sum > b.sum){
-                return 1;
-        // and and b are the same
-        }else{
-                return 0;
-        }
-      }
-      let ctx = "myChart";
-      const templateArray = <%- JSON.stringify(data) %>.sort(compare);
-      const chartTitle = <%- JSON.stringify(title) %>;
-      const data_array = [];
-      const descriptions_array = [];
-      templateArray.forEach(object => {
-        data_array.push(object.sum)
-        descriptions_array.push(object.data)
-      })
-      Chart.defaults.global.defaultFontFamily = "'Scope One', serif";
-      Chart.defaults.global.defaultFontSize = 25;
-      let myChart = new Chart(ctx, {
-        type: 'horizontalBar',
-        data: {
-          labels: descriptions_array,
-          datasets: [{
-            label: 'Votes',
-            data: data_array,
-            backgroundColor: [
-              '#3E517A',
-              '#93E1D8',
-              '#A63446',
-              '#EE6055'
-            ],
-            borderColor: [
-              '#293651',
-              '#4FCFC0',
-              '#7C2734',
-              '#EE6055'
-            ],
-            borderWidth: 2
-          }]
-        },
-        options: {
-          legend: {
-            display: false,
-          },
-          responsive: true,
-          maintainAspectRatio: true,
-          title: {
-            display: true,
-            text: chartTitle,
-            fontSize: 40
-          },
-          scales: {
-            xAxes: [{
-              ticks: {
-                beginAtZero: true,
-                stepSize: 1
-              },
-              gridLines: {
-                display: false
-              }
-            }],
-            yAxes: [{
-              gridLines: {
-                display: false
-              }
-            }]
-          },
-          layout: {
-            padding: {
-              left: 20,
-              right: 100,
-              top: 30,
-              bottom: 30
+          function compare(a, b){
+            // a should come before b in the sorted order
+            if(a.sum > b.sum){
+                    return -1;
+            // a should come after b in the sorted order
+            }else if(a.sum > b.sum){
+                    return 1;
+            // and and b are the same
+            }else{
+                    return 0;
             }
           }
+
+
+      /**
+       * function to generate random color in hex form
+       */
+      function getRandomColorHex() {
+        var hex = "0123456789ABCDEF",
+          color = "#";
+        for (var i = 1; i <= 6; i++) {
+          color += hex[Math.floor(Math.random() * 16)];
         }
-      });
+        return color;
+      }
+
+          let ctx = "myChart";
+          const templateArray = <%- JSON.stringify(data) %>.sort(compare);
+          const chartTitle = <%- JSON.stringify(title) %>;
+          const data_array = [];
+          const descriptions_array = [];
+          templateArray.forEach(object => {
+            data_array.push(object.sum)
+            descriptions_array.push(object.data)
+          })
+          Chart.defaults.global.defaultFontFamily = "'Scope One', serif";
+          Chart.defaults.global.defaultFontSize = 25;
+          let myChart = new Chart(ctx, {
+            type: 'horizontalBar',
+            data: {
+              labels: descriptions_array,
+              datasets: [{
+                label: 'Votes',
+                data: data_array,
+                backgroundColor: [
+                  getRandomColorHex(),
+                  getRandomColorHex(),
+                  getRandomColorHex(),
+                  getRandomColorHex(),
+                  getRandomColorHex()
+                ],
+                borderColor: [
+                  "#111",
+                  "#111",
+                  "#111",
+                  "#111",
+                  "#111"
+                ],
+                borderWidth: 2
+              }]
+            },
+            options: {
+              legend: {
+                display: false,
+              },
+              responsive: true,
+              maintainAspectRatio: true,
+              title: {
+                display: true,
+                text: chartTitle,
+                fontSize: 40
+              },
+              scales: {
+                xAxes: [{
+                  ticks: {
+                    beginAtZero: true,
+                    stepSize: 1
+                  },
+                  gridLines: {
+                    display: false
+                  }
+                }],
+                yAxes: [{
+                  gridLines: {
+                    display: false
+                  }
+                }]
+              },
+              layout: {
+                padding: {
+                  left: 20,
+                  right: 100,
+                  top: 30,
+                  bottom: 30
+                }
+              }
+            }
+          });
     </script>
-      <script>
-        $('#checkPoll').submit(function(e) {
-          const input = $('#adminEmail').val();
-          e.preventDefault();
-          if (input === <%-JSON.stringify(email) %>)
-          {
-          $('#checkPoll').hide()
-          $('#myChart').slideDown('slow');
-          } else {
-            alert('wrong email')
-          }
-        })
-      </script>
+    <script>
+      $('#checkPoll').submit(function(e) {
+        const input = $('#adminEmail').val();
+        e.preventDefault();
+        if (input === <%-JSON.stringify(email) %>)
+        {
+        $('#checkPoll').hide()
+        $('#myChart').slideDown('slow');
+        } else {
+          alert('wrong email')
+        }
+      })
+    </script>
   </body>
 </html>
