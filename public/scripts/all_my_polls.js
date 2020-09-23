@@ -14,7 +14,7 @@ jQuery(document).ready(function() {
       success: (links) => {
         let count = 1;
         for (let link of links) {
-          $('#allPolls').append(`<br><a href=/admin/${link.id}>poll ${count}</a><br>`);
+          $('.poll-container').append(`<br><a class='poll-links' href=/admin/${link.id}>poll ${count}</a><br>`)
           count ++;
         }
 
