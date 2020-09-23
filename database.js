@@ -174,3 +174,15 @@ const getTotalRank = function(option_id, poll_id) {
 exports.getTotalRank = getTotalRank;
 
 
+const getPollIdFromEmail = (email) => {
+  return db.query(`
+  SELECT polls.id
+  FROM polls
+  JOIN users ON users.id = creator_id
+  WHERE users.email = $1
+  `,[email])
+  .then((res) => res.rows)
+  .catch((err) => console.log("query error", err.stack));
+}
+
+exports.getPollIdFromEmail = getPollIdFromEmail;

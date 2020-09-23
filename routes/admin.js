@@ -32,6 +32,13 @@ module.exports = function (database) {
     res.render('my_polls');
   });
 
+  router.post('/hello',(req,res) => {
+    return database.getPollIdFromEmail(req.body.email)
+    .then((pollId) => {
+      console.log(pollId);
+    })
+  })
+
 
   return router;
 };
