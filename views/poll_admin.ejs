@@ -38,20 +38,18 @@
       style="display: none"
     ></canvas>
     <script type="text/javascript">
-          function compare(a, b){
-            // a should come before b in the sorted order
-            if(a.sum > b.sum){
-                    return -1;
-            // a should come after b in the sorted order
-            }else if(a.sum > b.sum){
-                    return 1;
-            // and and b are the same
-            }else{
-                    return 0;
-            }
-          }
-
-
+      /**
+       * Function to sort array based on rank sum
+       */
+      function compare(a, b){
+        if(Number(a.sum) > Number(b.sum)){
+          return -1;
+        }else if(Number(a.sum) > Number(b.sum)){
+          return 1;
+        }else{
+          return 0;
+        }
+      }
       /**
        * function to generate random color in hex form
        */
@@ -64,6 +62,7 @@
         return color;
       }
 
+<<<<<<< HEAD
           let ctx = "myChart";
           const templateArray = <%- JSON.stringify(data) %>.sort(compare);
           const chartTitle = <%- JSON.stringify(title) %>;
@@ -128,17 +127,82 @@
                     display: false
                   }
                 }]
+=======
+      let ctx = "myChart";
+      const templateArray = <%- JSON.stringify(data) %>.sort(compare);
+      const chartTitle = <%- JSON.stringify(title) %>;
+      const question = <%- JSON.stringify(description) %>;
+      const data_array = [];
+      const descriptions_array = [];
+      templateArray.forEach(object => {
+        data_array.push(object.sum)
+        descriptions_array.push(object.data)
+      })
+      Chart.defaults.global.defaultFontFamily = "'Scope One', serif";
+      Chart.defaults.global.defaultFontSize = 25;
+      let myChart = new Chart(ctx, {
+        type: 'horizontalBar',
+        data: {
+          labels: descriptions_array,
+          datasets: [{
+            label: "Votes",
+            data: data_array,
+            backgroundColor: [
+              getRandomColorHex(),
+              getRandomColorHex(),
+              getRandomColorHex(),
+              getRandomColorHex(),
+              getRandomColorHex()
+            ],
+            borderColor: [
+              "#111",
+              "#111",
+              "#111",
+              "#111",
+              "#111"
+            ],
+            borderWidth: 2
+          }]
+        },
+        options: {
+          legend: {
+            display: false,
+          },
+          responsive: true,
+          maintainAspectRatio: true,
+          title: {
+            display: true,
+            text: [chartTitle, question],
+            fontSize: 50,
+            padding: 10
+          },
+          scales: {
+            xAxes: [{
+              ticks: {
+                beginAtZero: true,
+                stepSize: 1
+>>>>>>> master
               },
-              layout: {
-                padding: {
-                  left: 20,
-                  right: 100,
-                  top: 30,
-                  bottom: 30
-                }
+              gridLines: {
+                display: false
               }
+            }],
+            yAxes: [{
+              gridLines: {
+                display: false
+              }
+            }]
+          },
+          layout: {
+            padding: {
+              left: 20,
+              right: 100,
+              top: 30,
+              bottom: 30
             }
-          });
+          }
+        }
+      });
     </script>
     <script>
       $('#checkPoll').submit(function(e) {

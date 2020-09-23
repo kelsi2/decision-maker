@@ -19,7 +19,6 @@ module.exports = function(database) {
         poll_question: polls[0].description,
         options: options
       };
-      console.log(templateVars);
       res.render("vote", templateVars);
     })
     .catch((err) => console.log(err.stack));
@@ -66,9 +65,6 @@ module.exports = function(database) {
     .catch((err) => console.log(err.stack));
     res.render('vote_confirm');
   });
-
-
-
 
   return router;
 };
