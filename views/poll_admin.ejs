@@ -42,9 +42,9 @@
        * Function to sort array based on rank sum
        */
       function compare(a, b){
-        if(a.sum > b.sum){
+        if(Number(a.sum) > Number(b.sum)){
           return -1;
-        }else if(a.sum > b.sum){
+        }else if(Number(a.sum) > Number(b.sum)){
           return 1;
         }else{
           return 0;
