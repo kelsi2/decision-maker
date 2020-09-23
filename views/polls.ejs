@@ -31,6 +31,7 @@
           <!-- enter email -->
           <label id="field-labels">Enter your email</label>
           <input
+            id="poll-form"
             class="form_email"
             type="email"
             name="user_email"
@@ -39,10 +40,17 @@
           /><br />
           <!-- enter title of poll  -->
           <label id="field-labels">What is your poll called?</label>
-          <input type="text" name="poll_title" required="true" placeholder="Poll title" /><br />
+          <input
+            id="poll-form"
+            type="text"
+            name="poll_title"
+            required="true"
+            placeholder="Poll title"
+          /><br />
           <!-- what is your question?  -->
           <label id="field-labels">What do you want to decide?</label>
           <input
+            id="poll-form"
             type="text"
             name="poll_question"
             required="true"
@@ -80,14 +88,16 @@
             <button type="button" class="make-a-poll" id="deletebtn">
               Remove an option
             </button>
+          </div>
+          <div class="submit-button">
             <button
               class="make-a-poll"
               type="submit"
               method="POST"
               action="/polls"
             >
-              Submit</button
-            ><br />
+              Submit
+            </button>
           </div>
         </form>
       </section>

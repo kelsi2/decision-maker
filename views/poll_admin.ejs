@@ -62,72 +62,6 @@
         return color;
       }
 
-<<<<<<< HEAD
-          let ctx = "myChart";
-          const templateArray = <%- JSON.stringify(data) %>.sort(compare);
-          const chartTitle = <%- JSON.stringify(title) %>;
-          const question = <%- JSON.stringify(description) %>;
-          const data_array = [];
-          const descriptions_array = [];
-          templateArray.forEach(object => {
-            data_array.push(object.sum)
-            descriptions_array.push(object.data)
-          })
-          Chart.defaults.global.defaultFontFamily = "'Scope One', serif";
-          Chart.defaults.global.defaultFontSize = 25;
-          let myChart = new Chart(ctx, {
-            type: 'horizontalBar',
-            data: {
-              labels: descriptions_array,
-              datasets: [{
-                label: "Votes",
-                data: data_array,
-                backgroundColor: [
-                  getRandomColorHex(),
-                  getRandomColorHex(),
-                  getRandomColorHex(),
-                  getRandomColorHex(),
-                  getRandomColorHex()
-                ],
-                borderColor: [
-                  "#111",
-                  "#111",
-                  "#111",
-                  "#111",
-                  "#111"
-                ],
-                borderWidth: 2
-              }]
-            },
-            options: {
-              legend: {
-                display: false,
-              },
-              responsive: true,
-              maintainAspectRatio: true,
-              title: {
-                display: true,
-                text: [chartTitle, question],
-                fontSize: 50,
-                padding: 10
-              },
-
-              scales: {
-                xAxes: [{
-                  ticks: {
-                    beginAtZero: true,
-                    stepSize: 1
-                  },
-                  gridLines: {
-                    display: false
-                  }
-                }],
-                yAxes: [{
-                  gridLines: {
-                    display: false
-                  }
-                }]
-=======
       let ctx = "myChart";
       const templateArray = <%- JSON.stringify(data) %>.sort(compare);
       const chartTitle = <%- JSON.stringify(title) %>;
@@ -191,7 +125,6 @@
               ticks: {
                 beginAtZero: true,
                 stepSize: 1
->>>>>>> master
               },
               gridLines: {
                 display: false

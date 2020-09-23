@@ -2,15 +2,18 @@
   display: flex;
   flex-direction: column;
   align-content: center;
-  color: white;
+  color: black;
   font-family: "Scope One", serif;
   font-size: 1.5em;
   justify-content: center;
   align-items: center;
+  padding-bottom: 1em;
 }
 
 #get-started {
+  display: block;
   font-size: 1.5em;
   align-content: center;
   align-items: center;
+  margin: auto;
 }
