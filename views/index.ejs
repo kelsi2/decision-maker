@@ -1,29 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Home Page</title>
 
-<head>
-  <title>Home Page</title>
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Scope+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/index.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/form.css" type="text/css" />
 
-  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-  <link href="https://fonts.googleapis.com/css2?family=Scope+One&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles/form.css" type="text/css" />
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <%-include("partials/_header") %>
 
-  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-    crossorigin="anonymous"></script>
-</head>
-<%-include("partials/_header") %>
-
-<body>
-  <main>
-    <h1>Need to make a choice?</h1>
-    <form method="POST" action="/polls">
-      <button class="make-a-poll" type="submit">Make a New Poll!</button>
-    </form>
-  </main>
-</body>
-
+  <body>
+    <main>
+      <h1>Need to make a choice?</h1>
+      <section id="main-page">
+        <div>
+          <h2 class="step-1-heading">1. Make a poll</h2>
+          <img class="step-1-img" src="https://bit.ly/3mHwLl7" />
+        </div>
+        <div>
+          <h2 class="step-2-heading">
+            2. Share it with your friends and collect votes
+          </h2>
+          <img class="step-2-img" src="https://bit.ly/35YEq8J" />
+        </div>
+        <div>
+          <h2 class="step-3-heading">3. Check out the results!</h2>
+          <img class="step-3-img" src="https://bit.ly/3iU3PEl" />
+        </div>
+      </section>
+      <form method="POST" action="/polls">
+        <button id="get-started" class="make-a-poll" type="submit">
+          Let's get started!
+        </button>
+      </form>
+    </main>
+  </body>
 </html>

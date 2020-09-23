@@ -1,0 +1,29 @@
+#main-page {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  color: midnightblue;
+  font-family: "Scope One", serif;
+  font-size: 1em;
+  justify-content: space-between;
+  padding: 2em;
+}
+
+.step-2-img {
+  padding-left: 5em;
+  padding-top: 0.5em;
+}
+
+.step-1-heading {
+  padding-left: 3em;
+}
+
+.step-3-heading {
+  padding-left: 0.5em;
+}
+
+#get-started {
+  font-size: 1.5em;
+  align-content: center;
+  align-items: center;
+}

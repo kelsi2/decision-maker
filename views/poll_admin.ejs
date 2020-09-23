@@ -29,9 +29,14 @@
     <form class="slider" id="checkPoll">
       <label for="adminEmail">Email</label>
       <input type="email" id="adminEmail" placeholder="your@email.com" />
-      <button type="submit">check your results here</button>
+      <button type="submit">Check your results here</button>
     </form>
-    $
+    <canvas
+      id="myChart"
+      height="30%"
+      width="70%"
+      style="display: none"
+    ></canvas>
     <script type="text/javascript">
           function compare(a, b){
             // a should come before b in the sorted order
@@ -62,6 +67,7 @@
           let ctx = "myChart";
           const templateArray = <%- JSON.stringify(data) %>.sort(compare);
           const chartTitle = <%- JSON.stringify(title) %>;
+          const question = <%- JSON.stringify(description) %>;
           const data_array = [];
           const descriptions_array = [];
           templateArray.forEach(object => {
@@ -75,7 +81,7 @@
             data: {
               labels: descriptions_array,
               datasets: [{
-                label: 'Votes',
+                label: "Votes",
                 data: data_array,
                 backgroundColor: [
                   getRandomColorHex(),
@@ -102,8 +108,9 @@
               maintainAspectRatio: true,
               title: {
                 display: true,
-                text: chartTitle,
-                fontSize: 40
+                text: [chartTitle, question],
+                fontSize: 50,
+                padding: 10
               },
 
               scales: {

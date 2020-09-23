@@ -2,6 +2,18 @@ const express = require("express");
 const router = express.Router();
 
 module.exports = function (database) {
+
+  router.get('/hello',(req,res) => {
+    //use email input tag to send pollid to admin/hello
+    console.log('query', req.query.email);
+    database.getPollIdFromEmail(req.query.email)
+    .then((pollId) => {
+      res.json(pollId);
+      //console.log(pollId);
+    })
+  })
+
+
   router.get("/:pollId", (req, res) => {
     const pollId = req.params.pollId;
     database.getPoll(pollId)
@@ -32,12 +44,7 @@ module.exports = function (database) {
     res.render('my_polls');
   });
 
-  router.post('/hello',(req,res) => {
-    return database.getPollIdFromEmail(req.body.email)
-    .then((pollId) => {
-      console.log(pollId);
-    })
-  })
+
 
 
   return router;
