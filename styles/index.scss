@@ -1,0 +1,21 @@
+#main-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.site-instructions {
+  justify-content: left;
+  flex-direction: column;
+  color: midnightblue;
+  font-family: "Scope One", serif;
+  font-size: 1em;
+  padding-left: 35em;
+}
+
+#get-started {
+  justify-content: right;
+  font-size: 2em;
+  margin-right: 15em;
+}
