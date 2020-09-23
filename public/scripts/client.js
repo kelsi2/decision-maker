@@ -1,5 +1,13 @@
+jQuery(document).ready(function() {
 
+  addOptionButton();
+  emailCheck();
+  deleteOption();
+
+});
 const addOptionButton = () => {
+  const max = 10;
+  const min = 2;
   $("#addOptionBtn").on('click', function(event) {
     if(countOptions() >= max) {
       event.preventDefault();
@@ -45,6 +53,7 @@ const countOptions = () => {
 };
 
 const deleteOption = () => {
+  const min = 2;
   $("#deletebtn").click(function(e) {
     e.preventDefault();
     const optField = document.getElementById('field_wrapper')
@@ -58,12 +67,3 @@ const deleteOption = () => {
   });
 }
 
-jQuery(document).ready(function() {
-  const max = 10;
-  const min = 2;
-
-  addOptionButton();
-  emailCheck();
-  deleteOption();
-
-});
