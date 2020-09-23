@@ -34,16 +34,18 @@
             class="form_email"
             type="email"
             name="user_email"
+            required="true"
             placeholder="e-mail@example.com"
           /><br />
           <!-- enter title of poll  -->
           <label id="field-labels">What is your poll called?</label>
-          <input type="text" name="poll_title" placeholder="Poll title" /><br />
+          <input type="text" name="poll_title" required="true" placeholder="Poll title" /><br />
           <!-- what is your question?  -->
           <label id="field-labels">What do you want to decide?</label>
           <input
             type="text"
             name="poll_question"
+            required="true"
             placeholder="Ask your question!"
           /><br />
           <!-- button  -->
@@ -53,18 +55,21 @@
               type="text"
               class="options"
               name="options[0]"
+              required="true"
               placeholder="First Option"
             />
             <input
               type="text"
               class="options"
               name="options[1]"
+              required="true"
               placeholder="Second Option"
             />
             <input
               type="text"
               class="options"
               name="options[2]"
+              required="true"
               placeholder="Third Option"
             />
           </div>
