@@ -1,15 +1,51 @@
 .container {
-  padding: 1rem;
-  margin-top: 1rem;
+  padding: 1em;
+  margin-top: 1em;
 }
 
 .draggable {
   padding: 1rem;
-  background-color: rgb(126, 111, 111);
-  border: 1px solid black;
   cursor: move;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+  margin: 0.2em;
+  font-size: 1.7em;
+  font-family: "Scope One", serif;
+  text-align: center;
+  list-style-type: none;
 }
 
 .draggable.dragging {
   opacity: 0.5;
+}
+
+#name-box {
+  display: block;
+  font-size: 1.5em;
+  align-content: center;
+  align-items: center;
+  margin: auto;
+  border-radius: 10px;
+  margin-bottom: 1em;
+}
+
+.poll-question {
+  padding: 0;
+}
+
+.submit-vote {
+  background-color: midnightblue;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 0.5em;
+  cursor: pointer;
+  font-size: 1.4em;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
 }

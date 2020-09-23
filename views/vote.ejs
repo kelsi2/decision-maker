@@ -26,7 +26,7 @@
       <div class="poll-container">
         <h1 class="poll-question"><%= poll_title %></h1>
         <form action="/user/<%= id %>" method="POST">
-          <input text="text" name="username" />
+          <input id="name-box" text="text" name="username" placeholder="Name (optional)" />
           <ul id="sortable">
             <% options.forEach((option, i) => { %>
             <li class="draggable">
@@ -36,7 +36,7 @@
             <%  }) %>
           </ul>
           ​
-          <button class="make-a-poll" type="submit">Submit</button>
+          <button class="submit-vote" type="submit">Submit</button>
         </form>
       </div>
     </main>
