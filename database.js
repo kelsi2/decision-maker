@@ -146,8 +146,8 @@ const getOptionIdFromData = function(option, poll_id) {
   FROM options
   WHERE data LIKE $1
   AND poll_id = $2`, [option, poll_id])
-    .then((res) => res.rows[0].id)
-    .catch((err) => console.log("query error", err.stack));
+  .then((res) => res.rows[0].id)
+  .catch((err) => console.log("query error", err.stack));
 };
 
 exports.getOptionIdFromData = getOptionIdFromData;
@@ -167,8 +167,8 @@ const getTotalRank = function(option_id, poll_id) {
   WHERE option_id = $1
   AND poll_id = $2
   GROUP BY option_id, options.data`, [option_id, poll_id])
-    .then((res) => res.rows[0])
-    .catch((err) => console.log("query error", err.stack));
+  .then((res) => res.rows[0])
+  .catch((err) => console.log("query error", err.stack));
 };
 
 exports.getTotalRank = getTotalRank;
