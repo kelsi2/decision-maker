@@ -30,10 +30,13 @@
     <main>
       <h1>You made a poll!</h1>
       <!-- Links to share the poll and link to view the results -->
-      <a id="poll-links" href="/user/<%= id %>"
-        >View your poll here and share this user link with your friends: localhost:5000/user/<%= id %></a
+      <p>View your poll here and share this user link with your friends:</p>
+      <a id="share-link" href="/user/<%= id %>">
+        localhost:5000/user/<%= id %></a
       ><br />
-      <a id="poll-links" href="/admin/<%= id %>">Check out the results here: localhost:5000/admin/<%= id %> </a
+      <p>Check out the results here:</p>
+      <a id="share-link" href="/admin/<%= id %>"
+        >localhost:5000/admin/<%= id %> </a
       ><br />
     </main>
   </body>

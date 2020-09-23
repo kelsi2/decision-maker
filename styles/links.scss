@@ -1,14 +1,12 @@
-#poll-links {
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  font-family: 'Lora', serif;
-  background-color: #4CAF50;
-  border: none;
+#share-link {
+  text-align: center;
+  display: block;
+  margin: auto;
   color: white;
-  padding: 16px 32px;
-  text-decoration: none;
-  margin: 1em;
-  cursor: pointer;
-  font-size: 25px
+  font-size: 1.5em;
+  font-family: "Lora", serif;
+  background-color: midnightblue;
+  width: 25%;
+  border-radius: 10px;
+  padding: 0.7em;
 }
