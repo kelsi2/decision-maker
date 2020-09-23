@@ -1,30 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Poll Admin</title>
 
-<head>
-  <title>Poll Admin</title>
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/my_polls.css" type="text/css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Scope+One&display=swap"
+      rel="stylesheet"
+    />
 
-  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-  <link href="https://fonts.googleapis.com/css2?family=Scope+One&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <%-include("partials/_header") %>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-    crossorigin="anonymous"></script>
-</head>
-<%-include("partials/_header") %>
-<body>
-
-  <h1>here are my polls</h1>
-  <form class = 'slider' id='allPolls'>
-    <label for='allPollEmail'>Email</label>
-    <input type = 'email' id='allPollEmail'  placeholder='your@email.com' name='email'>
-    <button type='submit' id='clickbtn'>check your results here</button>
-</form>
-<div class='poll-container'></div>
-</body>
-<script type='text/javascript' src="/scripts/all_my_polls.js"></script>
+  <body>
+    <h1>Let's see the results!</h1>
+    <form class="slider" id="allPolls">
+      <label id="email-label" for="allPollEmail">Email</label>
+      <input
+        type="email"
+        id="allPollEmail"
+        placeholder="your@email.com"
+        name="email"
+      />
+      <button type="submit" id="clickbtn">Check your results</button>
+    </form>
+    <div class="poll-container"></div>
+  </body>
+  <script type="text/javascript" src="/scripts/all_my_polls.js"></script>
 </html>
