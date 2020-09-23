@@ -4,7 +4,6 @@ jQuery(document).ready(function() {
     e.preventDefault();
     let email = $('#allPollEmail').val();
     fetchId(email);
-    return false;
   })
 
   const fetchId = (email) => {
@@ -15,7 +14,7 @@ jQuery(document).ready(function() {
       success: (links) => {
         let count = 1;
         for (let link of links) {
-          $('#allPolls').append(`<br><a href=/admin/polls/${link.id}>poll ${count}</a><br>`);
+          $('#allPolls').append(`<br><a href=/admin/${link.id}>poll ${count}</a><br>`);
           count ++;
         }
 
