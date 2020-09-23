@@ -1,21 +1,29 @@
 #main-page {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
   align-content: center;
-}
-
-.site-instructions {
-  justify-content: left;
-  flex-direction: column;
   color: midnightblue;
   font-family: "Scope One", serif;
   font-size: 1em;
-  padding-left: 30em;
+  justify-content: space-between;
+  padding: 2em;
+}
+
+.step-2-img {
+  padding-left: 5em;
+  padding-top: 0.5em;
+}
+
+.step-1-heading {
+  padding-left: 3em;
+}
+
+.step-3-heading {
+  padding-left: 0.5em;
 }
 
 #get-started {
-  justify-content: right;
-  font-size: 2em;
-  margin-right: 10em;
+  font-size: 1.5em;
+  align-content: center;
+  align-items: center;
 }

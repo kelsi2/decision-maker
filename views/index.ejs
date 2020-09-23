@@ -27,20 +27,26 @@
     <main>
       <h1>Need to make a choice?</h1>
       <section id="main-page">
-        <section class="site-instructions">
-          <h3>1. Make a poll</h3>
-          <img src="https://bit.ly/3mHwLl7" />
-          <h3>2. Share it with your friends and collect votes</h3>
-          <img src="https://bit.ly/35YEq8J" />
-          <h3>3. Check out the results!</h3>
-          <img src="https://bit.ly/3iU3PEl" />
-        </section>
-        <form method="POST" action="/polls">
-          <button id="get-started" class="make-a-poll" type="submit">
-            Let's get started!
-          </button>
-        </form>
+        <div>
+          <h2 class="step-1-heading">1. Make a poll</h2>
+          <img class="step-1-img" src="https://bit.ly/3mHwLl7" />
+        </div>
+        <div>
+          <h2 class="step-2-heading">
+            2. Share it with your friends and collect votes
+          </h2>
+          <img class="step-2-img" src="https://bit.ly/35YEq8J" />
+        </div>
+        <div>
+          <h2 class="step-3-heading">3. Check out the results!</h2>
+          <img class="step-3-img" src="https://bit.ly/3iU3PEl" />
+        </div>
       </section>
+      <form method="POST" action="/polls">
+        <button id="get-started" class="make-a-poll" type="submit">
+          Let's get started!
+        </button>
+      </form>
     </main>
   </body>
 </html>
