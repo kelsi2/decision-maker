@@ -1,4 +1,4 @@
-#allPolls {
+.slider {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,7 +7,7 @@
   margin: auto;
 }
 
-#clickbtn {
+.clickbtn {
   background-image: linear-gradient(#0009ff, black);
   border: none;
   color: white;
@@ -15,11 +15,11 @@
   text-decoration: none;
   margin: 0.5em;
   cursor: pointer;
-  font-size: 1.3em;
+  font-size: 1.5em;
   border-radius: 10px;
 }
 
-#email-label {
+.email-label {
   font-family: "Scope One", serif;
   font-size: 2em;
   color: black;
@@ -30,4 +30,17 @@
   display: flex;
   width: 25%;
   border-radius: 10px;
+}
+
+#adminEmail {
+  display: flex;
+  width: 45%;
+  border-radius: 10px;
+}
+
+.poll-links {
+  color: black;
+  display: block;
+  text-align: center;
+  font-size: 2em;
 }
