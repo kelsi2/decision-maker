@@ -30,7 +30,7 @@
           <ul id="sortable">
             <% options.forEach((option, i) => { %>
             <li class="draggable">
-              <span>Option <%= i + 1 %> : <%= option %></span>
+              <span><%= option %></span>
               <input type='hidden' name='options[]' value='<%= option %>' /></li>
             </li>
             <%  }) %>
