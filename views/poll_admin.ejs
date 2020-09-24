@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/my_polls.css" types="text/css" />
+    <link rel="stylesheet" href="/styles/chart.css" type="text/css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Scope+One&display=swap"
       rel="stylesheet"
@@ -74,6 +75,7 @@
         descriptions_array.push(object.data)
       })
       Chart.defaults.global.defaultFontFamily = "'Scope One', serif";
+      Chart.defaults.global.defaultFontColor = "black";
       Chart.defaults.global.defaultFontSize = 25;
       let myChart = new Chart(ctx, {
         type: 'horizontalBar',
