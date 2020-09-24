@@ -182,7 +182,11 @@ const getTotalRank = function(option_id, poll_id) {
 
 exports.getTotalRank = getTotalRank;
 
-
+/**
+ * Get a single entry in the poll database for a provided email
+ * @param {String} email The email for the id.
+ * @return {Promise<{}>} A promise to the poll id.
+ */
 const getPollIdFromEmail = (email) => {
   return db.query(`
   SELECT polls.id
@@ -196,6 +200,12 @@ const getPollIdFromEmail = (email) => {
 
 exports.getPollIdFromEmail = getPollIdFromEmail;
 
+/**
+ * Get a single entry in the options database for a provided username and poll id
+ * @param {String} username The username for the rank.
+ * * @param {String} pollId The poll id for the rank.
+ * @return {Promise<{}>} A promise to the rank.
+ */
 const getRankFromUser = (username,pollId) => {
   return db.query(`
   SELECT options.data, votes.rank, votes.user_id
@@ -211,6 +221,11 @@ const getRankFromUser = (username,pollId) => {
 
 exports.getRankFromUser = getRankFromUser;
 
+/**
+ * Get a single entry in the votes database for a provided poll id.
+ * @param {String} pollId The poll id for the user.
+ * @return {Promise<{}>} A promise to the user id.
+ */
 const getUsersThatVotedFromId = (pollId) => {
   return db.query(`
   SELECT DISTINCT votes.user_id
