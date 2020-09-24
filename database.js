@@ -186,3 +186,32 @@ const getPollIdFromEmail = (email) => {
 }
 
 exports.getPollIdFromEmail = getPollIdFromEmail;
+
+const getRankFromUser = (username,pollId) => {
+  return db.query(`
+  SELECT options.data, votes.rank, votes.user_id
+  FROM options
+  JOIN votes ON option_id = options.id
+  JOIN polls ON polls.id = poll_id
+  WHERE user_id = $1 AND polls.id = $2
+  GROUP BY options.data, votes.rank, votes.user_id;
+  `, [username,pollId])
+  .then((res) => res.rows)
+  .catch((err) => console.log("query error", err.stack));
+}
+
+exports.getRankFromUser = getRankFromUser;
+
+const getUsersThatVotedFromId = (pollId) => {
+  return db.query(`
+  SELECT DISTINCT votes.user_id
+  FROM options
+  JOIN votes ON option_id = options.id
+  JOIN polls ON polls.id = poll_id
+  WHERE polls.id = $1
+  `, [pollId])
+  .then((res) => res.rows)
+  .catch((err) => console.log("query error", err.stack));
+}
+
+exports.getUsersThatVotedFromId = getUsersThatVotedFromId;
