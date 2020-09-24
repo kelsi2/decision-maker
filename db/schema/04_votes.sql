@@ -3,7 +3,7 @@
 DROP TABLE IF EXISTS votes CASCADE;
 CREATE TABLE votes (
   id SERIAL PRIMARY KEY NOT NULL,
-  user_id VARCHAR(255),
+  user_id VARCHAR(255) DEFAULT 'Guest',
   option_id INTEGER REFERENCES options(id),
   rank INTEGER
 );

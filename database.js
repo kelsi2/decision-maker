@@ -63,12 +63,21 @@ exports.createUser = createUser;
  * @return {Promise<{}>} A promise to the vote.
  */
 const createVote = function(user_id, option_id, rank) {
-  return db.query(`
-  INSERT INTO votes (user_id, option_id, rank)
-  VALUES ($1, $2, $3)
-  RETURNING *;`, [user_id, option_id, rank])
-    .then((res) => res.rows)
-    .catch((err) => console.log("query error", err.stack));
+  if (user_id != '') {
+    return db.query(`
+    INSERT INTO votes (user_id, option_id, rank)
+    VALUES ($1, $2, $3)
+    RETURNING *;`, [user_id, option_id, rank])
+      .then((res) => res.rows)
+      .catch((err) => console.log("query error", err.stack));
+  } else {
+    return db.query(`
+    INSERT INTO votes (option_id, rank)
+    VALUES ($1, $2)
+    RETURNING *;`, [option_id, rank])
+      .then((res) => res.rows)
+      .catch((err) => console.log("query error", err.stack));
+  }
 };
 
 exports.createVote = createVote;
