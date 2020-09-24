@@ -48,12 +48,18 @@ module.exports = function(database) {
     });
     database.getEmailFromPollId(req.params.pollId)
     .then (emailObj => {
+      let subName;
+      if (name != '') {
+        subName = name;
+      } else {
+        subName = 'Guest'
+      }
       const data = {
         from: 'Best Devs Ever <bestdevs@bestdevs.com>',
         to: emailObj.email,
         subject: `A new submission has been made on poll ${emailObj.id}!`,
         text: `Hi! \n
-        Your poll has a new submission! \n
+        Your poll has a new submission from ${subName}! \n
         You can revist your poll from the following link: \n
         localhost:5000/admin/${emailObj.id} \n\n
         Thanks once again for using the best decision maker ever created!`
