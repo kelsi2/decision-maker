@@ -33,25 +33,22 @@
       <input type="email" id="adminEmail" placeholder="your@email.com" />
       <button class="clickbtn" type="submit">Check your results here</button>
     </form>
-    <canvas
-      id="myChart"
-      class="hide_these"
-      height="30%"
-      width="70%"
-      style="display: none"
+    <div
+      class="chart-container"
+      style="position: relative; height: 30%; width: 70%"
     >
-    </canvas>
-
-    <table class="hide_these" style="display: none">
+      <canvas id="myChart" class="hide_these" style="display: none"> </canvas>
+    </div>
+    <table id="voters-table" class="hide_these" style="display: none">
+      <thead id="voters-header">
+        <th><h2>Voters in this poll:</h2></th>
+      </thead>
       <% for (let rank of ranks) { %>
       <tr>
-        <th><strong><%=rank[0].user_id %></strong></the>
+        <td><h4><%=rank[0].user_id %></h4></td>
       </tr>
       <% } %>
-
     </table>
-
-
 
     <script type="text/javascript">
       /**

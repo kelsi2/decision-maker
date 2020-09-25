@@ -1,7 +1,7 @@
 // See: https://sass-lang.com/
 
 body {
-  background-image: url(https://image.freepik.com/free-photo/high-vitamin-c-juicy-sweet-fresh-orange-orange-fruit-pattern-yellow-background-banner-poster-copy-space_68196-2197.jpg);
+  background-image: url(https://c7.uihere.com/files/718/723/807/blue-wavy-background.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -9,7 +9,7 @@ body {
 }
 
 h1 {
-  color: black;
+  color: #00346b;
   display: flex;
   justify-content: center;
   padding: 1em;
@@ -18,8 +18,22 @@ h1 {
   font-size: 4em;
 }
 
+h2 {
+  color: #00346b;
+  font-family: "Scope One", serif;
+  font-size: 3em;
+  margin: 0;
+}
+
+h4 {
+  color: #00346b;
+  font-family: "Scope One", serif;
+  font-size: 2em;
+  margin: 0;
+}
+
 a {
-  color: white;
+  color: #001a4b;
   font-family: "Abril Fatface", cursive;
 }
 

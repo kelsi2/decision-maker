@@ -8,21 +8,22 @@
 }
 
 .clickbtn {
-  background-image: linear-gradient(#0009ff, black);
+  background-image: linear-gradient(#0056b1, #00d0f6);
   border: none;
-  color: white;
+  color: #00346b;
   padding: 16px 32px;
   text-decoration: none;
   margin: 0.5em;
   cursor: pointer;
   font-size: 1.5em;
+  font-weight: bold;
   border-radius: 10px;
 }
 
 .email-label {
   font-family: "Scope One", serif;
   font-size: 2em;
-  color: black;
+  color: #00346b;
   font-weight: bolder;
 }
 
@@ -39,7 +40,7 @@
 }
 
 .poll-links {
-  color: black;
+  color: #00346b;
   display: block;
   text-align: center;
   font-size: 2em;
