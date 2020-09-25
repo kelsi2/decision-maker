@@ -26,7 +26,7 @@
 
   <body>
     <main>
-      <h1>Here are your polls</h1>
+      <h1>Let's see the results!</h1>
     </main>
     <form class="slider" id="checkPoll">
       <label class="email-label" for="adminEmail">Email</label>
@@ -35,10 +35,34 @@
     </form>
     <canvas
       id="myChart"
+      class="hide_these"
       height="30%"
       width="70%"
       style="display: none"
-    ></canvas>
+    >
+    </canvas>
+    <table class="hide_these" style="display: none">
+      <% for (let rank of ranks) { %>
+      <tr>
+        <td><strong><%= rank[0].user_id %></strong></td>
+      </tr>
+      <% } %>
+    </table>
+    <!-- -->
+    <!-- < for (let rank of ranks) { %> -->
+    <!-- <h1>< rank.user_id %></h1> -->
+    <!-- < } %> -->
+    <!-- <thead>
+        <tr>
+          <th>options</th>
+          <th>Ranking number</th>
+        </tr>
+      </thead>
+      <tr>
+        <td>< ranks[0][0].user_id %></td>
+        <td><ranks[0][0].data %></td>
+      </tr>
+    -->
     <script type="text/javascript">
       /**
        * Function to sort array based on rank sum
@@ -65,6 +89,7 @@
       }
 
       let ctx = "myChart";
+      let names = <%- JSON.stringify(ranks) %>;
       const templateArray = <%- JSON.stringify(data) %>.sort(compare);
       const chartTitle = <%- JSON.stringify(title) %>;
       const question = <%- JSON.stringify(description) %>;
@@ -112,7 +137,7 @@
           }]
         },
         options: {
-          legend: {
+          legend:{
             display: false,
           },
           responsive: true,
@@ -157,7 +182,7 @@
         if (input === <%-JSON.stringify(email) %>)
         {
         $('#checkPoll').hide()
-        $('#myChart').slideDown('slow');
+        $('.hide_these').slideDown('slow');
         } else {
           alert('wrong email')
         }

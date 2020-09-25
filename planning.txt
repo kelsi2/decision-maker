@@ -1,29 +1,17 @@
-## Git Pull ##
-git checkout master
-git pull
-git checkout branch
-git merge master
+## Presentation script ##
 
-## SITE PAGES (get routes) ##
+David: Intro to team and why we decided on this project
 
-1. admin page (view poll results) (get /admin/:admin_url) <--admin_url is the link given at poll creation
-DONE 2. Poll creation (get /polls)
-3. voting page (get /voter/:voter_url) <-- voting link given at poll creation
-DONE 4. landing page (create poll, what does the app do?) [get /]
-5. poll created, display admin and voter links after poll creation (/created)
-6. after vote page (/voted) <-- display poll results
-7. error page in case user has already voted (get /user_error)
+David/Raffy/Kelsi: Describe what we focused on for the project
 
-## BACKEND ##
-1. database
-2. routes (see site pages and post routes)
+Kelsi: Show landing page and create a poll
+* Share poll with David and Raffy (slack)
 
-## TODO ##
-1. HTML shell (one per page, for now just barebones what this page is)
+Raffy and David: Demonstrate receiving email and voting
 
+Kelsi: Demonstrate poll results
 
-## POST ROUTES ##
-DONE 1. Post '/polls' - Create new poll
-2. post '/:poll_id/vote' - user submits vote
-3. post /delete/:poll_id - allows poll to be deleted
-4. post /edit/:poll_id - allows poll to be edited
+Kelsi/David/Raffy: Challenges, what did you learn/what will you do differently
+* merge conflicts
+* mailgun api
+* req.body returning empty

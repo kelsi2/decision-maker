@@ -1,0 +1,88 @@
+                    
+                    RAFFY:
+- good afternoon everyone i hope everyone is having a wonderful day so far. Today we will be presenting midterm project that we've been working on for the last week. But before we do that, let me introduce myself. My name is raffy and i do have a bit of background on networking, tcpip and a little with c programming with microcontrollers. I joined lhl because i'm interested in working on web servers. Kelsey would you like to introduce yourself?
+  
+  
+  
+                                     
+                    KELSI:
+-hi my name is kelsey, i joined LHL because I've been interested in web coding for a long time as a hobby and I decided it is time to focus on that full time. I am very interested in design and css.
+david would you like to say something about yourself?
+                   
+                   
+                   
+                   
+                   
+                    
+                    DAVID:
+-hi my name is david, ___________________________________________________________
+                    
+   
+   
+   
+                    
+                    RAFFY:
+-now that we've introduced ourselves. lets talk about the project. For the midterm, we chose the decision maker app, Because tbh... none of us were very decisive on which project to choose since they we're all pretty interesting. And then we came accross this one.. Okay.. maybe we need to create an app where we can have other people can share their opinion to help us come up with a decision. so by further adieu... david would you like to demonstrate.
+            
+            
+            
+            
+                    DAVID:
+          <----- SHARE localhost:5000/ ---------->
+-lets get started 
+                (clicks "lets get started")
+                    
+lets fill out this form in.. so first we need an email... if the email does not exist in the database, it will create one for the creator otherwise... it will save this form in the existing email in the database. then for our poll title... i'm feeling kinda hungry.. so lets name it "food". What should i eat today?? (mcdonalds, bk, wendies)
+oh wait.. let me add another option....
+            (click button twice..) (pizzahut)
+ohh oops... let me remove that extra option. When i click this submit button, it will send an email to my account saying "a new poll was created with the links i could send to my friends.
+                
+                    (click submit)
+                    
+                    
+                    
+                    
+                    
+                    KELSI:
+-from here.. david is able to copy this link and send it to anyone he wishes that could vote. 
+(david clicks the users link)
+this is the screen i'm seeing right now. Basically at this page. the voter can fill in their name. and drag and drop the options from top to bottom. I'm feeling like some "wendy's" so i'll put that on top. then some bk, mcdonalds, pizzahut".
+                    
+                    (clicks vote)
+                    
+                    
+                    
+                    
+                    
+                    RAFFY:
+                    
+-when this vote button is clicked, it sends an email to the poll creator.. (aka david)
+                
+                (open up fake email account)
+and it says here.. poll has new submission and we can click the link here to check the results.
+                    (clicks the link)
+                    
+lets try to enter a wrong email here (a@a.com)... ohh it didn't let me.. now let me try it with the right email.. ahh there it is.. and it shows me what my friends think i should eat...
+Overall this project was a ton of fun for us to work on.
+
+
+
+
+
+				KELSI:
+ David and Raffy did most of the backend work for the app. David worked mostly on database querries and routing while Raffy worked on the jquerry, some database querries, and routing. I mostly did the design and css, with help from Raffy and David, and helped with some backend as well.. With all that.. we also came accross some problems. David would you like to talk about that?
+ 
+ 
+ 
+ 
+                    DAVID:
+                    
+ The most difficult part about this is working as a group of three. And YES we did come across a lot of merge conflicts in git-hub. This was the first time for most of us on working on a project together, so we had to figure out how git merging and pushing works. Another issue we had was with the mailgun Api we integrated. we had to somehow put the api key on our .env file so mailgun doesn't ban our account for pushing our api key to github.
+ 
+ 
+ 
+ 
+ 
+                    KELSI:
+                    
+Thank you all for your time. If you have any questions feel free to ask us.
