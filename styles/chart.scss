@@ -1,18 +1,12 @@
-.chart-container {
-  text-align: left;
-}
-
 #myChart {
   background-image: linear-gradient(#ebfbff, #9cadbc);
   border: 10px solid rgb(59, 89, 152);
   border-radius: 20px;
-  position: absolute;
 }
 
 #voters-table {
   display: flex;
-  align-items: flex-end;
-  justify-content: right;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
-  margin: 5%;
 }
