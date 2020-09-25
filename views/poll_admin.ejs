@@ -41,28 +41,18 @@
       style="display: none"
     >
     </canvas>
+
     <table class="hide_these" style="display: none">
       <% for (let rank of ranks) { %>
       <tr>
-        <td><strong><%= rank[0].user_id %></strong></td>
+        <th><strong><%=rank[0].user_id %></strong></the>
       </tr>
       <% } %>
+
     </table>
-    <!-- -->
-    <!-- < for (let rank of ranks) { %> -->
-    <!-- <h1>< rank.user_id %></h1> -->
-    <!-- < } %> -->
-    <!-- <thead>
-        <tr>
-          <th>options</th>
-          <th>Ranking number</th>
-        </tr>
-      </thead>
-      <tr>
-        <td>< ranks[0][0].user_id %></td>
-        <td><ranks[0][0].data %></td>
-      </tr>
-    -->
+
+
+
     <script type="text/javascript">
       /**
        * Function to sort array based on rank sum
