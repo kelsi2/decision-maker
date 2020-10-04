@@ -12,10 +12,18 @@ Votes are ranked in order of preference so you can easily tell what the most pop
 
 Set up your poll with as many options as you want. If you add too many options, removing one (or two, or three, you get the idea!) is just a click away.<br>
 Once the poll has been created you can share it with your friends or check out the poll results for the poll. The poll creator receives an email confirmation when a poll is created and when any votes are received.<br>
+<br>
+
 ![Create a poll"](docs/Create_poll.gif)<br>
-Polls are designed to allow for drag and drop voting. Users can optionally enter their name or be identified as a guest.
+<br>
+Polls are designed to allow for drag and drop voting. Users can optionally enter their name or be identified as a guest.<br>
+<br>
+
 !["Place a vote!"](docs/Vote.gif)<br>
-Poll results can be viewed for any polls associated with the entered email and are displayed in a bar chart. This page also includes a list of voters in the poll.
+<br>
+Poll results can be viewed for any polls associated with the entered email and are displayed in a bar chart. This page also includes a list of voters in the poll.<br>
+<br>
+
 !["View poll results"](docs/Poll_Results.gif)<br>
 
 ## Getting Started
