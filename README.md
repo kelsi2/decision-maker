@@ -1,8 +1,8 @@
 # The Decider
 
-Having trouble deciding what to do with your friends on Friday night? Where to go for dinner? What movie to see?
+### Having trouble deciding what to do with your friends on Friday night? Where to go for dinner? What movie to see?
 
-Introducing The Decider: an app to help you make that tough choice!
+Introducing **The Decider**: an app to help you make that tough choice!
 
 !["Home page and site instructions"](docs/Home_Page.png)
 
